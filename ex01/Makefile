@@ -18,7 +18,7 @@ OBJ_DIR = .o
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:%.cpp=%.o))
 
 RM	=	rm -f
-HEADER =	-Iphonebook./
+HEADER =	-I includes
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
