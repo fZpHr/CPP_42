@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Megaphone.cpp                                      :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/21 19:16:43 by hbelle            #+#    #+#             */
-/*   Updated: 2024/03/25 18:42:11 by hbelle           ###   ########.fr       */
+/*   Created: 2024/03/25 17:01:01 by hbelle            #+#    #+#             */
+/*   Updated: 2024/03/25 17:03:25 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 
-int main(int ac, char **av)
+#include <iostream>
+#include <string>
+
+class Zombie
 {
-	if (ac > 1)
-	{
-		for (int i = 1; i < ac; i++)
-		{
-			std::string str = av[i];
-			for (int j = 0; av[i][j]; j++)
-				std::cout << (char)std::toupper(str[j]);
-		}
-		std::cout << std::endl;
-	}
-	else
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-	return (0);
-}
+	public:
+		Zombie(std::string name);
+		~Zombie(void);
+
+		void    announce(void);
+
+	private:
+		std::string _name;
+};
+
+#endif

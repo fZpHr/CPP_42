@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 17:33:18 by hbelle            #+#    #+#             */
-/*   Updated: 2024/03/25 16:23:35 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/03/25 19:42:33 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ void Contact::add()
 
 void    Contact::search()
 {
-
 	if (_first_name.length() > 10)
 	{
 		for (long unsigned int i = 0; i < 9; i++)
@@ -77,9 +76,7 @@ void    Contact::search()
 	}
 	else
 	{
-		for (long unsigned int i = 0; i < 10 - _first_name.length(); i++)
-			std::cout << " ";
-		std::cout << _first_name;
+		std::cout << std::setw(10) << std::right << _first_name;
 		std::cout << "|";
 	}
 	if (_last_name.length() > 10)
@@ -90,9 +87,7 @@ void    Contact::search()
 	}
 	else
 	{
-		for (long unsigned int i = 0; i < 10 - _last_name.length(); i++)
-			std::cout << " ";
-		std::cout << _last_name;
+		std::cout << std::setw(10) << std::right << _last_name;
 		std::cout << "|";
 	}
 	if (_nickname.length() > 10)
@@ -103,9 +98,7 @@ void    Contact::search()
 	}
 	else
 	{
-		for (long unsigned int i = 0; i < 10 - _nickname.length(); i++)
-			std::cout << " ";
-		std::cout << _nickname;
+		std::cout << std::setw(10) << std::right << _nickname;
 	}
 	std::cout << std::endl;
 }
