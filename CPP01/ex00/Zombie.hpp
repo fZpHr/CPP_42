@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 17:01:01 by hbelle            #+#    #+#             */
-/*   Updated: 2024/03/25 17:03:25 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/03/25 20:03:59 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Zombie
 {
 	public:
 		Zombie(std::string name);
-		~Zombie(void);
+		//~Zombie(void);
 
 		void    announce(void);
 

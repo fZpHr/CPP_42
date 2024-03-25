@@ -10,9 +10,12 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	Megaphone
+NAME	=	Zombie
 
-SRCS	=	Megaphone.cpp
+SRCS	=	main.cpp \
+			Zombie.cpp \
+			newZombie.cpp \
+			randomChump.cpp
 
 OBJ_DIR = .o
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:%.cpp=%.o))
@@ -30,7 +33,7 @@ $(OBJ_DIR)/%.o: %.cpp
         \033[36m$*.cpp\033[032m  [OK] ✅ \033[00m";\
     else \
         echo "\033[01m\033[33mCompiling \033[00m\
-        \033[36m$*.cpp\033[00m\  [Error] ❌ \033[00m"; fi
+        \033[36m$*.cpp\033[031m  [Error] ❌ \033[00m"; fi
 
 $(NAME): $(OBJS)
 	@g++ -o $(NAME) $(OBJS) $(CFLAGS) $(HEADER)
