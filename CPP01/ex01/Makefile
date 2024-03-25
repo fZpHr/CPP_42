@@ -14,8 +14,7 @@ NAME	=	Zombie
 
 SRCS	=	main.cpp \
 			Zombie.cpp \
-			newZombie.cpp \
-			randomChump.cpp
+			zombieHorde.cpp
 
 OBJ_DIR = .o
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:%.cpp=%.o))

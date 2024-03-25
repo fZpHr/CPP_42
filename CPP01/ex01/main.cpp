@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/25 20:19:01 by hbelle            #+#    #+#             */
-/*   Updated: 2024/03/25 20:45:13 by hbelle           ###   ########.fr       */
+/*   Created: 2024/03/25 20:02:45 by hbelle            #+#    #+#             */
+/*   Updated: 2024/03/25 21:29:14 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie* newZombie(std::string name)
+int main(void)
 {
-	Zombie* copyptr = new Zombie(name);
-	return (copyptr);
+	Zombie *zombie = zombieHorde(1, "1");
+	delete zombie;
+	return (0);
 }
