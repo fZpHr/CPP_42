@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 17:33:18 by hbelle            #+#    #+#             */
-/*   Updated: 2024/03/22 18:58:18 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/03/25 16:23:35 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
+#include "PhoneBook.hpp"
 
 void Contact::add()
 {
@@ -121,7 +121,7 @@ void	Contact::index()
 
 int	main(void)
 {
-	Phonebook	phonebook;
+	PhoneBook	Phonebook;
 	std::string	command;
 	int			i = 0;
 
@@ -136,7 +136,7 @@ int	main(void)
 		}
 		if (command == "ADD")
 		{
-			phonebook.contacts[i].add();
+			Phonebook.contacts[i].add();
 			i++;
 		}
 		else if (command == "SEARCH")
@@ -146,7 +146,7 @@ int	main(void)
 			for (int j = 0; j <= 7; j++)
 			{
 				std::cout << "         " << j+1 << "|";
-				phonebook.contacts[j].search();
+				Phonebook.contacts[j].search();
 			}
 			std::cout << "-------------------------------------------" << std::endl;
 			std::cout << "Enter an index: ";
@@ -160,7 +160,7 @@ int	main(void)
 			if (command == "1" || command == "2" || command == "3" || command == "4" || command == "5" || command == "6" || command == "7" || command == "8")
 			{
 				int index = std::atoi(command.c_str());
-				phonebook.contacts[index - 1].index();
+				Phonebook.contacts[index - 1].index();
 			}
 			else
 				std::cout << "Invalid index" << std::endl;

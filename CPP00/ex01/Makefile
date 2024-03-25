@@ -10,9 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	phonebook
+NAME	=	PhoneBook
 
-SRCS	=	phonebook.cpp
+SRCS	=	PhoneBook.cpp
 
 OBJ_DIR = .o
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:%.cpp=%.o))

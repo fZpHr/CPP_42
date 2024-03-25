@@ -10,9 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	megaphone
+NAME	=	Megaphone
 
-SRCS	=	megaphone.cpp
+SRCS	=	Megaphone.cpp
 
 OBJ_DIR = .o
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:%.cpp=%.o))
