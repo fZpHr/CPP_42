@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Sed.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/25 17:03:37 by hbelle            #+#    #+#             */
-/*   Updated: 2024/03/26 15:24:26 by hbelle           ###   ########.fr       */
+/*   Created: 2024/03/26 16:30:49 by hbelle            #+#    #+#             */
+/*   Updated: 2024/03/26 19:48:39 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef WEAPON_HPP
+# define WEAPON_HPP
 
+# include <iostream>
+# include <string>
 
-Zombie::Zombie(std::string name) : _name(name)
+class Sed
 {
-	std::cout << "Zombie " << _name << " is born" << std::endl;
-}
+	public :
 
-Zombie::~Zombie(void)
-{
-	std::cout << "Zombie " << _name << " is dead" << std::endl;
-}
+	private :
 
-void	Zombie::announce(void)
-{
-	std::cout << _name << ":" << " BraiiiiiiinnnzzzZ..." << std::endl;
-}
+};
+
+#endif

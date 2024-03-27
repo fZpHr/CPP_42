@@ -6,17 +6,27 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 20:02:45 by hbelle            #+#    #+#             */
-/*   Updated: 2024/03/26 16:09:38 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/03/26 16:27:17 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <iostream>
+#include <string>
 
 int main(void)
 {
-	Zombie *zombie = zombieHorde(5, "1");
-	for (int i = 0; i < 5; i++)
-		zombie[i].announce();
-	delete[] zombie;
+	std::string brain = "HI THIS IS BRAIN";
+	std::string *ptr = &brain;
+	std::string &ref = brain;
+
+	std::cout << "Address: " << &brain << std::endl;
+	std::cout << "Address: " << &ptr << std::endl;
+	std::cout << "Address: " << &ref << std::endl;
+	
+	std::cout << "String: " << brain << std::endl;
+	std::cout << "Pointer: " << *ptr << std::endl;
+	std::cout << "Reference: " << ref << std::endl;
+
+
 	return (0);
 }

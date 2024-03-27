@@ -10,15 +10,19 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	megaphone
+NAME	=	unnecessary_violence
 
-SRCS	=	megaphone.cpp
+SRCS	=	Weapon.cpp \
+			HumanA.cpp \
+			HumanB.cpp \
+			main.cpp
+
 
 OBJ_DIR = .o
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:%.cpp=%.o))
 
 RM	=	rm -f
-HEADER =	-I includes 
+HEADER =	-I includes
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
@@ -34,6 +38,7 @@ $(OBJ_DIR)/%.o: %.cpp
 
 $(NAME): $(OBJS)
 	@g++ -o $(NAME) $(OBJS) $(CFLAGS) $(HEADER)
+	@make clean -s
 	@echo "\033[01m\033[4;33mCompilation done\033[00m\033[1;31m =▶\033[00m\033[1;32m ./${NAME}\033[00m"
 
 all:	${NAME}

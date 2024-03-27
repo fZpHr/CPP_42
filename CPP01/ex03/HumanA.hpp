@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/25 17:03:37 by hbelle            #+#    #+#             */
-/*   Updated: 2024/03/26 15:24:26 by hbelle           ###   ########.fr       */
+/*   Created: 2024/03/26 16:55:52 by hbelle            #+#    #+#             */
+/*   Updated: 2024/03/27 14:26:30 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef HumanA_HPP
+# define HumanA_HPP
 
+#include "Weapon.hpp"
 
-Zombie::Zombie(std::string name) : _name(name)
+class HumanA
 {
-	std::cout << "Zombie " << _name << " is born" << std::endl;
-}
+	public :
+		HumanA(std::string name, Weapon &weapon);
+		~HumanA();
+		void	attack();
+	private :
+		std::string	_name;
+		Weapon		&_Weapon;
+};
 
-Zombie::~Zombie(void)
-{
-	std::cout << "Zombie " << _name << " is dead" << std::endl;
-}
-
-void	Zombie::announce(void)
-{
-	std::cout << _name << ":" << " BraiiiiiiinnnzzzZ..." << std::endl;
-}
+#endif

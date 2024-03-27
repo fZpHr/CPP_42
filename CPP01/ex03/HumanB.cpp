@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/25 17:03:37 by hbelle            #+#    #+#             */
-/*   Updated: 2024/03/26 15:24:26 by hbelle           ###   ########.fr       */
+/*   Created: 2024/03/26 16:37:54 by hbelle            #+#    #+#             */
+/*   Updated: 2024/03/26 19:05:41 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanB.hpp"
 
-
-Zombie::Zombie(std::string name) : _name(name)
+HumanB::HumanB(std::string name) : _name(name)
 {
-	std::cout << "Zombie " << _name << " is born" << std::endl;
 }
 
-Zombie::~Zombie(void)
+void	HumanB::setWeapon(Weapon &weapon)
 {
-	std::cout << "Zombie " << _name << " is dead" << std::endl;
+	_Weapon = &weapon;
 }
 
-void	Zombie::announce(void)
+void	HumanB::attack(void)
 {
-	std::cout << _name << ":" << " BraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout << _name << " attacks with his " << _Weapon->getType() << std::endl;
+}
+
+HumanB::~HumanB()
+{
 }

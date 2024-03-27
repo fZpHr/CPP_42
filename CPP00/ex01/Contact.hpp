@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 16:15:09 by hbelle            #+#    #+#             */
-/*   Updated: 2024/03/25 16:17:40 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/03/27 16:52:08 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 class Contact
 {
 	public:
+		Contact();
+		~Contact();
 		void    add();
 		void    search();
 		void	index();

@@ -6,17 +6,38 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 20:02:45 by hbelle            #+#    #+#             */
-/*   Updated: 2024/03/26 16:09:38 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/03/27 14:15:07 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <iostream>
+#include <string>
+#include <fstream>
 
-int main(void)
+
+int main(int ac, char **av)
 {
-	Zombie *zombie = zombieHorde(5, "1");
-	for (int i = 0; i < 5; i++)
-		zombie[i].announce();
-	delete[] zombie;
-	return (0);
+	if (ac != 3)
+	{
+		std::cout << "Usage: ./Sed_is_for_losers [filename] [string1] [string2]" << std::endl;
+		return (1);
+	}
+	else
+	{
+		std::string filename = av[1];
+		std::string s1 = av[2];
+		std::string s2 = av[3];
+		std::ifstream ifs(filename);
+		if (!ifs)
+		{
+			std::cout << "Error: could not open file" << std::endl;
+			return (1);
+		}
+		std::string line;
+		std::ofstream ofs(filename + ".replace");
+		while (std::getline(ifs, line))
+		{
+			if (line.find(s1) 
+		}
+	}
 }
