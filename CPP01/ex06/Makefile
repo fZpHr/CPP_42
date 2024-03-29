@@ -10,9 +10,10 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	sed_is_for_losers
+NAME	=	harlFilter
 
-SRCS	=	main.cpp
+SRCS	=	main.cpp \
+			Harl.cpp
 
 
 OBJ_DIR = .o

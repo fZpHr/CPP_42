@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/26 16:42:38 by hbelle            #+#    #+#             */
-/*   Updated: 2024/03/28 16:32:32 by hbelle           ###   ########.fr       */
+/*   Created: 2024/03/29 18:22:23 by hbelle            #+#    #+#             */
+/*   Updated: 2024/03/29 18:33:30 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+#include "Harl.hpp"
 
-const std::string &Weapon::getType(void) const
+int main(int ac, char **av)
 {
-	return (_type);
+	if (ac != 2)
+	{
+		std::cerr << "Usage: ./Harl [level]" << std::endl;
+		return (1);
+	}
+	else
+	{
+		Harl harl;
+		harl.complain(av[1]);
+	}
+	return (0);
 }
-
-void Weapon::setType(std::string type)
-{
-	this->_type = type;
-}
-
-Weapon::Weapon(std::string type) : _type(type)
-{
-}
-
-Weapon::~Weapon()
-{
-}
-

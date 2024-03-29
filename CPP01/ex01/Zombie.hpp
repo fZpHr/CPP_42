@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 17:01:01 by hbelle            #+#    #+#             */
-/*   Updated: 2024/03/26 16:05:06 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/03/29 19:27:26 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class Zombie
 		Zombie();
 		Zombie(std::string name);
 		void    announce(void);
+		void	setName(std::string name);
 		~Zombie(void);
 	private:
 		std::string _name;

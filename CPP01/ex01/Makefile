@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	Zombie
+NAME	=	zombie
 
 SRCS	=	main.cpp \
 			Zombie.cpp \
@@ -26,7 +26,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
 $(OBJ_DIR)/%.o: %.cpp
 	@mkdir -p $(@D)
-	@g++ $(CFLAGS) $(HEADER) -c $< -o $@
+	@c++ $(CFLAGS) $(HEADER) -c $< -o $@
 	@if test -s $*.cpp; then \
         echo "\033[01m\033[35mCompiling ⌛\033[00m\
         \033[36m$*.cpp\033[032m  [OK] ✅ \033[00m";\
@@ -35,8 +35,7 @@ $(OBJ_DIR)/%.o: %.cpp
         \033[36m$*.cpp\033[031m  [Error] ❌ \033[00m"; fi
 
 $(NAME): $(OBJS)
-	@g++ -o $(NAME) $(OBJS) $(CFLAGS) $(HEADER)
-	@make clean -s
+	@c++ -o $(NAME) $(OBJS) $(CFLAGS) $(HEADER)
 	@echo "\033[01m\033[4;33mCompilation done\033[00m\033[1;31m =▶\033[00m\033[1;32m ./${NAME}\033[00m"
 
 all:	${NAME}

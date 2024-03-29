@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 16:55:52 by hbelle            #+#    #+#             */
-/*   Updated: 2024/03/27 14:26:30 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/03/28 18:14:30 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class HumanA
 		void	attack();
 	private :
 		std::string	_name;
-		Weapon		&_Weapon;
+		Weapon	&_Weapon;
 };
 
 #endif
