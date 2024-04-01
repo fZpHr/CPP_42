@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 16:30:49 by hbelle            #+#    #+#             */
-/*   Updated: 2024/03/28 16:31:30 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/04/01 18:41:05 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define WEAPON_HPP
 
 # include <iostream>
-# include <string>
 
 class Weapon
 {

@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 20:02:45 by hbelle            #+#    #+#             */
-/*   Updated: 2024/03/26 16:27:17 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/04/01 18:36:04 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,16 @@ int main(void)
 	std::string *ptr = &brain;
 	std::string &ref = brain;
 
-	std::cout << "Address: " << &brain << std::endl;
-	std::cout << "Address: " << &ptr << std::endl;
-	std::cout << "Address: " << &ref << std::endl;
+	std::cout << "Address section : " << std::endl;
+	std::cout << "	String: " << &brain << std::endl;
+	std::cout << "	Pointer: " << &ptr << std::endl;
+	std::cout << "	Reference: " << &ref << std::endl;
+	std::cout << std::endl;
 	
-	std::cout << "String: " << brain << std::endl;
-	std::cout << "Pointer: " << *ptr << std::endl;
-	std::cout << "Reference: " << ref << std::endl;
-
+	std::cout << "Value section : " << std::endl;
+	std::cout << "	String: " << brain << std::endl;
+	std::cout << "	Pointer: " << *ptr << std::endl;
+	std::cout << "	Reference: " << ref << std::endl;
 
 	return (0);
 }

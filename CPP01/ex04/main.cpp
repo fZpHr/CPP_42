@@ -6,12 +6,21 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 20:02:45 by hbelle            #+#    #+#             */
-/*   Updated: 2024/03/29 16:38:42 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/04/01 18:59:22 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include <iostream>
 # include <fstream>
+
+void	ft_replace(std::string &line, std::string str_find, std::string str_replace, int *change)
+{
+	while (line.find(str_find) != std::string::npos)
+	{
+		line = line.substr(0, line.find(str_find)) + str_replace + line.substr(line.find(str_find) + str_find.length());
+		*change = 1;
+	}
+}
 
 int main(int ac, char **av)
 {
@@ -43,11 +52,7 @@ int main(int ac, char **av)
 		}
 		while (std::getline(ifs, line))
 		{
-			while (line.find(str_find) != std::string::npos)
-			{
-				line = line.substr(0, line.find(str_find)) + str_replace + line.substr(line.find(str_find) + str_find.length());
-				change = 1;
-			}
+			ft_replace(line, str_find, str_replace, &change);
 			ofs << line << std::endl;
 		}
 		ifs.close();
@@ -61,6 +66,5 @@ int main(int ac, char **av)
 		else
 			std::cout << "File " << filename << " has been successfully replaced" << std::endl;
 		return (0);
-
 	}
 }

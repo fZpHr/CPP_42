@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 20:02:45 by hbelle            #+#    #+#             */
-/*   Updated: 2024/03/29 19:16:16 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/04/01 19:18:16 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 int main(void)
 {
-	std::cout << "Create(alloc) a zombie horde of 5 zombies" << std::endl;
-	Zombie *zombie = zombieHorde(5, "Horde");
+	Zombie *zombie = zombieHorde(5, "slt");
+	if (zombie == NULL)
+		return (1);
 	std::cout << std::endl;
 	std::cout << "Announce each zombie" << std::endl;
 	for (int i = 0; i < 5; i++)

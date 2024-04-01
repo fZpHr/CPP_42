@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 18:22:23 by hbelle            #+#    #+#             */
-/*   Updated: 2024/03/29 18:33:30 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/04/01 19:33:48 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int main(int ac, char **av)
 {
 	if (ac != 2)
 	{
-		std::cerr << "Usage: ./Harl [level]" << std::endl;
+		std::cerr << "Usage: ./harl_2.0 [level]" << std::endl;
 		return (1);
 	}
 	else
