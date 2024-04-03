@@ -1,35 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/01 20:38:46 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/02 15:48:19 by hbelle           ###   ########.fr       */
+/*   Created: 2024/04/03 19:34:41 by hbelle            #+#    #+#             */
+/*   Updated: 2024/04/03 20:18:00 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
-# include <iostream>
+#include "iostream"
 
-class Fixed
-{
-	public:
-		Fixed(void);
-		Fixed(Fixed const & src);
-		~Fixed(void);
 
-		Fixed & operator=(Fixed const & rhs);
 
-		int getRawBits(void) const;
-		void setRawBits(int const raw);
-
-	private:
-		int _fixedValue;
-		static const int _fractionalBits = 8;
-};
 
 #endif

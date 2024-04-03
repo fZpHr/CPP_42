@@ -10,10 +10,10 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	a.out
+NAME	=	clapTrap
 
 SRCS	=	main.cpp \
-			Fixed.cpp 
+			ClapTrap.cpp \
 
 
 OBJ_DIR = .o
