@@ -14,6 +14,7 @@ NAME	=	clapTrap
 
 SRCS	=	main.cpp \
 			ClapTrap.cpp \
+			ScavTrap.cpp
 
 
 OBJ_DIR = .o

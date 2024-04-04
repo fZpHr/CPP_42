@@ -6,13 +6,13 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 16:47:49 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/04 19:18:11 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/04/04 19:19:37 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(100), _energyPoints(50), _attackDamage(20)
+ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(100), _energyPoints(100), _attackDamage(30)
 {
 	std::cout << "ClapTrap constructor" << std::endl;
 }
@@ -55,7 +55,7 @@ void ClapTrap::attack(const std::string &target)
 	}
 	std::cout << "ClapTrap " << this->_name << " attack " << target << ", causing " << this->_attackDamage << " points of damage!" << std::endl;
 	this->_energyPoints -= 1;
-	if (this->_energyPoints > 50)
+	if (this->_energyPoints > 100)
 		this->_energyPoints = 0;
 
 }
@@ -117,7 +117,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 	if (this->_hitPoints > 100)
 		this->_hitPoints = 100;
 	this->_energyPoints -= 1;
-	if (this->_energyPoints > 50)
+	if (this->_energyPoints > 100)
 		this->_energyPoints = 0;
 	std::cout << "ClapTrap " << this->_name << " be repaired " << amount << " points of Hitpoints !" << std::endl;
 	if (tmp == 0)

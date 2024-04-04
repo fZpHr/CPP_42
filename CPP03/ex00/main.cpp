@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 17:12:32 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/03 20:15:20 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/04/04 19:20:32 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main()
 {
-	ClapTrap claptrap("ClapTrap");
+	ClapTrap claptrap("BobClapTrap");
 
 	std::cout << std::endl;
 	std::cout << "Attack empty target:" << std::endl;
@@ -28,7 +28,7 @@ int main()
 	claptrap.takeDamage(-1001);
 	std::cout << "Take damage with 0 amount:" << std::endl;
 	claptrap.takeDamage(0);
-	std::cout << "Take damage with valid amoud:" << std::endl;
+	std::cout << "Take damage with valid amount:" << std::endl;
 	for (int i = 0; i < 5; i++)
 		claptrap.takeDamage(5);
 	std::cout << std::endl;
