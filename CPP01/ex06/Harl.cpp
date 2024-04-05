@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 16:54:41 by hbelle            #+#    #+#             */
-/*   Updated: 2024/03/29 18:58:50 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/04/05 16:41:18 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,9 @@ void Harl::complain(std::string level)
 			_warning();
 		case 4:
 			_error();
+			break;
+		default
+			
 	}
 
 }
