@@ -10,12 +10,16 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	clapTrap
+NAME	=	polymorphisme
 
 SRCS	=	main.cpp \
-			ClapTrap.cpp \
-			ScavTrap.cpp \
-			FragTrap.cpp
+			Dog.cpp \
+			Cat.cpp \
+			Animal.cpp \
+			WrongAnimal.cpp \
+			WrongCat.cpp \
+			Brain.cpp \
+			
 
 
 OBJ_DIR = .o

@@ -1,40 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/05 17:28:55 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/08 13:54:30 by hbelle           ###   ########.fr       */
+/*   Created: 2024/04/08 16:06:02 by hbelle            #+#    #+#             */
+/*   Updated: 2024/04/08 16:42:43 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "Brain.hpp"
 
-Cat::Cat() : Animal("Cat")
+Brain::Brain()
 {
-	std::cout << "Cat constructor called" << std::endl;
+	std::cout << "Brain constructor called" << std::endl;
 }
 
-Cat::~Cat()
+Brain::~Brain()
 {
-	std::cout << "Cat destructor called" << std::endl;
+	std::cout << "Brain destructor called" << std::endl;
 }
 
-Cat::Cat(const Cat &src)
+Brain::Brain(const Brain &src)
 {
 	*this = src;
 }
 
-Cat &Cat::operator=(const Cat &src)
+Brain &Brain::operator=(const Brain &src)
 {
 	if (this != &src)
-		this->_type = src._type;
+		for (int i = 0; i < 100; i++)
+			this->_ideas[i] = src._ideas[i];
 	return (*this);
 }
 
-void Cat::makeSound() const
+void Brain::setIdea(std::string idea, int index)
 {
-	std::cout << "Miaou miaou" << std::endl;
+	this->_ideas[index] = idea;
+}
+
+std::string Brain::getIdea(int index) const
+{
+	return (this->_ideas[index]);
 }

@@ -6,19 +6,20 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 17:26:30 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/05 17:46:13 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/04/08 13:54:36 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog()
+Dog::Dog() : Animal("Dog")
 {
-	this->_type = "Dog";
+	std::cout << "Dog constructor called" << std::endl;
 }
 
 Dog::~Dog()
 {
+	std::cout << "Dog destructor called" << std::endl;
 }
 
 Dog::Dog(const Dog &src)

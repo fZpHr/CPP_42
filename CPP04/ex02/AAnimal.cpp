@@ -1,50 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   AAnimal.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 17:47:32 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/08 18:30:25 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/04/08 19:12:48 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 
-Animal::Animal() : _type("Animal")
+AAnimal::AAnimal() : _type("Animal")
 {
 	std::cout << "Animal constructor called" << std::endl;
 }
 
-Animal::Animal(std::string type) : _type(type)
+AAnimal::AAnimal(std::string type) : _type(type)
 {
 	std::cout << "Animal constructor called" << std::endl;
 }
 
-Animal::~Animal()
+AAnimal::~AAnimal()
 {
 	std::cout << "Animal destructor called" << std::endl;
 }
 
-Animal::Animal(const Animal &src)
+AAnimal::AAnimal(const AAnimal &src)
 {
 	*this = src;
 }
 
-Animal &Animal::operator=(const Animal &src)
+AAnimal &AAnimal::operator=(const AAnimal &src)
 {
 	if (this != &src)
 		this->_type = src._type;
 	return (*this);
 }
 
-std::string Animal::getType() const
+std::string AAnimal::getType() const
 {
 	return (this->_type);
 }
 
-void Animal::makeSound() const
+void AAnimal::makeSound() const
 {
 	std::cout << "I am an animal" << std::endl;
 }

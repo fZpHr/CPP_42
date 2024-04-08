@@ -10,11 +10,15 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	clapTrap
+NAME	=	polymorphisme
 
 SRCS	=	main.cpp \
 			Dog.cpp \
-			Cat.cpp
+			Cat.cpp \
+			Animal.cpp \
+			WrongAnimal.cpp \
+			WrongCat.cpp 
+
 
 OBJ_DIR = .o
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:%.cpp=%.o))

@@ -1,40 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/05 17:28:55 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/08 13:54:30 by hbelle           ###   ########.fr       */
+/*   Created: 2024/04/05 16:56:50 by hbelle            #+#    #+#             */
+/*   Updated: 2024/04/08 19:13:19 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#ifndef DOG_HPP
+# define DOG_HPP
 
-Cat::Cat() : Animal("Cat")
-{
-	std::cout << "Cat constructor called" << std::endl;
-}
+# include "AAnimal.hpp"
+# include "Brain.hpp"
 
-Cat::~Cat()
+class Dog : public AAnimal
 {
-	std::cout << "Cat destructor called" << std::endl;
-}
+	public:
+		Dog();
+		~Dog();
+		Dog(const Dog &src);
+		Dog &operator=(const Dog &src);
+		
+		void makeSound() const;
+		Brain *getBrain() const;
+		void setBrain(Brain *brain);
+	private:
+		Brain *_brain;
+};
 
-Cat::Cat(const Cat &src)
-{
-	*this = src;
-}
-
-Cat &Cat::operator=(const Cat &src)
-{
-	if (this != &src)
-		this->_type = src._type;
-	return (*this);
-}
-
-void Cat::makeSound() const
-{
-	std::cout << "Miaou miaou" << std::endl;
-}
+#endif

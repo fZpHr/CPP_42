@@ -1,40 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/05 17:28:55 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/08 13:54:30 by hbelle           ###   ########.fr       */
+/*   Created: 2024/04/05 17:26:30 by hbelle            #+#    #+#             */
+/*   Updated: 2024/04/08 19:11:32 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "Dog.hpp"
 
-Cat::Cat() : Animal("Cat")
+Dog::Dog() : AAnimal("Dog")
 {
-	std::cout << "Cat constructor called" << std::endl;
+	this->_brain = new Brain();
+	std::cout << "Dog constructor called" << std::endl;
 }
 
-Cat::~Cat()
+Dog::~Dog()
 {
-	std::cout << "Cat destructor called" << std::endl;
+	delete this->_brain;
+	std::cout << "Dog destructor called" << std::endl;
 }
 
-Cat::Cat(const Cat &src)
+Dog::Dog(const Dog &src)
 {
 	*this = src;
 }
 
-Cat &Cat::operator=(const Cat &src)
+Dog &Dog::operator=(const Dog &src)
 {
 	if (this != &src)
 		this->_type = src._type;
 	return (*this);
 }
 
-void Cat::makeSound() const
+void Dog::makeSound() const
 {
-	std::cout << "Miaou miaou" << std::endl;
+	std::cout << "Wouaf wouaf" << std::endl;
 }
+
+Brain *Dog::getBrain() const
+{
+	return (this->_brain);
+}
+
+void Dog::setBrain(Brain *src)
+{
+	delete this->_brain;
+	this->_brain = src;
+}
+

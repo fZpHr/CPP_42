@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 17:28:55 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/08 13:54:30 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/04/08 17:20:39 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 
 Cat::Cat() : Animal("Cat")
 {
+	this->_brain = new Brain();
 	std::cout << "Cat constructor called" << std::endl;
 }
 
 Cat::~Cat()
 {
+	delete this->_brain;
 	std::cout << "Cat destructor called" << std::endl;
 }
 
@@ -37,4 +39,15 @@ Cat &Cat::operator=(const Cat &src)
 void Cat::makeSound() const
 {
 	std::cout << "Miaou miaou" << std::endl;
+}
+
+Brain *Cat::getBrain() const
+{
+	return (this->_brain);
+}
+
+void Cat::setBrain(Brain *src)
+{
+	delete this->_brain;
+	this->_brain = src;
 }
