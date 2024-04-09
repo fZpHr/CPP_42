@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 13:48:44 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/08 14:08:00 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/04/09 14:21:51 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class WrongAnimal
 {
 	public:
 		WrongAnimal();
-		virtual ~WrongAnimal();
+		~WrongAnimal();
 		WrongAnimal(const WrongAnimal &src);
 		WrongAnimal(std::string type);
 		WrongAnimal &operator=(const WrongAnimal &src);

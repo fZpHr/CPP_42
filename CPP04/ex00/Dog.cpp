@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 17:26:30 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/08 13:54:36 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/04/09 18:52:05 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ Dog::Dog(const Dog &src)
 Dog &Dog::operator=(const Dog &src)
 {
 	if (this != &src)
-		this->_type = src._type;
+		this->type = src.type;
 	return (*this);
 }
 

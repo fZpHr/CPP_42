@@ -10,13 +10,16 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	clapTrap
+NAME	=	interfaces
 
 SRCS	=	main.cpp \
-			ClapTrap.cpp \
-			ScavTrap.cpp \
-			FragTrap.cpp
+			AMateria.cpp \
+			Character.cpp \
+			Cure.cpp \
+			Ice.cpp \
+			MateriaSource.cpp
 
+			
 
 OBJ_DIR = .o
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:%.cpp=%.o))

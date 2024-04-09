@@ -1,33 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AAnimal.hpp                                        :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/05 16:54:43 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/09 14:21:21 by hbelle           ###   ########.fr       */
+/*   Created: 2024/04/09 14:27:27 by hbelle            #+#    #+#             */
+/*   Updated: 2024/04/09 15:28:01 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AANIMAL_HPP
-# define AANIMAL_HPP
+#include "Ice.hpp"
 
-# include <iostream>
-
-class AAnimal
+Ice::Ice() : AMateria("ice")
 {
-	public:
-		AAnimal();
-		virtual ~AAnimal();
-		AAnimal(AAnimal const &src);
-		AAnimal(std::string type);
-		AAnimal &operator=(const AAnimal &src);
-		
-		std::string getType() const;
-		virtual void makeSound() const = 0;
-	protected:
-		std::string _type;
-};
+}
 
-#endif
+Ice::~Ice()
+{
+}
+
+Ice::Ice(Ice const &src)
+{
+	*this = src;
+}
+
+Ice &Ice::operator=(Ice const &src)
+{
+	if (this != &src)
+		this->_type = src._type;
+	return (*this);
+}
+
+Ice *Ice::clone() const
+{
+	return (new Ice());
+}
+
+void Ice::use(ICharacter& target)
+{
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+}

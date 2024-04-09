@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AAnimal.hpp                                        :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/05 16:54:43 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/09 14:21:21 by hbelle           ###   ########.fr       */
+/*   Created: 2024/04/09 14:31:15 by hbelle            #+#    #+#             */
+/*   Updated: 2024/04/09 16:15:39 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AANIMAL_HPP
-# define AANIMAL_HPP
+#ifndef CURE_HPP
+# define CURE_HPP
 
-# include <iostream>
+#include "AMateria.hpp"
+#include "ICharacter.hpp"
 
-class AAnimal
+class Cure : public AMateria
 {
 	public:
-		AAnimal();
-		virtual ~AAnimal();
-		AAnimal(AAnimal const &src);
-		AAnimal(std::string type);
-		AAnimal &operator=(const AAnimal &src);
-		
-		std::string getType() const;
-		virtual void makeSound() const = 0;
-	protected:
-		std::string _type;
+		Cure();
+		Cure(Cure const &src);
+		Cure &operator=(Cure const &src);
+		virtual ~Cure();
+
+		Cure *clone() const;
+		void use(ICharacter& target);
 };
 
 #endif

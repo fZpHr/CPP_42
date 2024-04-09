@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 16:54:43 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/08 14:19:36 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/04/09 20:15:10 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ class Animal
 {
 	public:
 		Animal();
-		virtual ~Animal();
-		Animal(Animal const &src);
 		Animal(std::string type);
-		Animal &operator=(const Animal &src);
+		Animal(Animal const &src);
+		virtual ~Animal();
 		
+		Animal &operator=(Animal const &src);
 		std::string getType() const;
 		virtual void makeSound() const;
 	protected:
-		std::string _type;
+		std::string type;
 };
 
 #endif

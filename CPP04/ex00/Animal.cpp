@@ -6,42 +6,43 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 17:47:32 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/08 18:30:25 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/04/09 20:21:54 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Animal::Animal() : _type("Animal")
+Animal::Animal() : type("Animal")
 {
-	std::cout << "Animal constructor called" << std::endl;
+	std::cout << "Animal constructor called: " << this->type << std::endl;
 }
 
-Animal::Animal(std::string type) : _type(type)
+Animal::Animal(std::string src) : type(src)
 {
-	std::cout << "Animal constructor called" << std::endl;
+	std::cout << "Animal constructor called: " << this->type << std::endl;
 }
 
 Animal::~Animal()
 {
-	std::cout << "Animal destructor called" << std::endl;
+	std::cout << "Animal destructor called: " << this->type << std::endl;
 }
 
-Animal::Animal(const Animal &src)
+Animal::Animal(Animal const &src)
 {
+	std::cout << "Animal constructor called: " << this->type << std::endl;
 	*this = src;
 }
 
-Animal &Animal::operator=(const Animal &src)
+Animal &Animal::operator=(Animal const &src)
 {
 	if (this != &src)
-		this->_type = src._type;
+		this->type = src.type;
 	return (*this);
 }
 
 std::string Animal::getType() const
 {
-	return (this->_type);
+	return (this->type);
 }
 
 void Animal::makeSound() const
