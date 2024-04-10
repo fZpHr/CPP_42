@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 13:46:47 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/08 14:28:50 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/04/10 18:18:12 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,13 @@ WrongCat::~WrongCat()
 	std::cout << "WrongCat destructor called" << std::endl;
 }
 
-WrongCat::WrongCat(const WrongCat &src)
+WrongCat::WrongCat(WrongCat const &src)
 {
+	std::cout << "WrongCat constructor copy called" << std::endl;
 	*this = src;
 }
 
-WrongCat &WrongCat::operator=(const WrongCat &src)
+WrongCat &WrongCat::operator=(WrongCat const &src)
 {
 	if (this != &src)
 		this->_type = src._type;

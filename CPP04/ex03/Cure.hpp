@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 14:31:15 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/09 16:15:39 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/04/10 18:25:18 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ class Cure : public AMateria
 	public:
 		Cure();
 		Cure(Cure const &src);
-		Cure &operator=(Cure const &src);
 		virtual ~Cure();
 
+		Cure &operator=(Cure const &src);
 		Cure *clone() const;
 		void use(ICharacter& target);
 };

@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 16:56:10 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/08 17:10:45 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/04/10 18:16:21 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ class Cat : public Animal
 {
 	public:
 		Cat();
+		Cat(Cat const &src);
 		~Cat();
-		Cat(const Cat &src);
-		Cat &operator=(const Cat &src);
 		
+		Cat &operator=(Cat const &src);
 		void makeSound() const;
 		Brain *getBrain() const;
 		void setBrain(Brain *brain);

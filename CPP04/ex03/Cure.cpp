@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 14:38:00 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/09 16:50:45 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/04/10 18:24:47 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,17 @@
 
 Cure::Cure() : AMateria("cure")
 {
+	std::cout << "Cure constructor called" << std::endl;
 }
 
 Cure::~Cure()
 {
+	std::cout << "Cure destructor called" << std::endl;
 }
 
 Cure::Cure(Cure const &src)
 {
+	std::cout << "Cure constructor copy called" << std::endl;
 	*this = src;
 }
 

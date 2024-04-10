@@ -1,47 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AAnimal.cpp                                        :+:      :+:    :+:   */
+/*   AAnimal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 17:47:32 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/08 19:12:48 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/04/09 20:21:54 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AAnimal.hpp"
 
-AAnimal::AAnimal() : _type("Animal")
+AAnimal::AAnimal() : type("Animal")
 {
-	std::cout << "Animal constructor called" << std::endl;
+	std::cout << "Animal constructor called: " << this->type << std::endl;
 }
 
-AAnimal::AAnimal(std::string type) : _type(type)
+AAnimal::AAnimal(std::string src) : type(src)
 {
-	std::cout << "Animal constructor called" << std::endl;
+	std::cout << "Animal constructor called: " << this->type << std::endl;
 }
 
 AAnimal::~AAnimal()
 {
-	std::cout << "Animal destructor called" << std::endl;
+	std::cout << "Animal destructor called: " << this->type << std::endl;
 }
 
-AAnimal::AAnimal(const AAnimal &src)
+AAnimal::AAnimal(AAnimal const &src)
 {
+	std::cout << "Animal constructor called: " << this->type << std::endl;
 	*this = src;
 }
 
-AAnimal &AAnimal::operator=(const AAnimal &src)
+AAnimal &AAnimal::operator=(AAnimal const &src)
 {
 	if (this != &src)
-		this->_type = src._type;
+		this->type = src.type;
 	return (*this);
 }
 
 std::string AAnimal::getType() const
 {
-	return (this->_type);
+	return (this->type);
 }
 
 void AAnimal::makeSound() const

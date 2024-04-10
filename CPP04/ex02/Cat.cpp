@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 17:28:55 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/08 19:11:26 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/04/10 18:21:31 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,17 @@ Cat::~Cat()
 	std::cout << "Cat destructor called" << std::endl;
 }
 
-Cat::Cat(const Cat &src)
+Cat::Cat(Cat const &src)
 {
+	this->_brain = new Brain();
 	*this = src;
+	std::cout << "Cat constructor copy called" << std::endl;
 }
 
-Cat &Cat::operator=(const Cat &src)
+Cat &Cat::operator=(Cat const &src)
 {
 	if (this != &src)
-		this->_type = src._type;
+		this->type = src.type;
 	return (*this);
 }
 

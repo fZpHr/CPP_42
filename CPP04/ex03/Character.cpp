@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 15:04:17 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/09 16:48:46 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/04/10 18:24:30 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,23 @@
 
 Character::Character(std::string name) : _name(name)
 {
+	std::cout << "Character constructor called" << std::endl;
+	for (int i = 0; i < 4; i++)
+		this->_inventory[i] = NULL;
 }
 
 Character::~Character()
 {
+	std::cout << "Character destructor called" << std::endl;
+	for (int i = 0; i < 4; i++)
+		if (this->_inventory[i])
+			delete this->_inventory[i];
 }
+
 
 Character::Character(Character const &src)
 {
+	std::cout << "Character constructor copy called" << std::endl;
 	*this = src;
 }
 

@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 17:26:30 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/08 19:11:32 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/04/10 18:21:29 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,17 @@ Dog::~Dog()
 	std::cout << "Dog destructor called" << std::endl;
 }
 
-Dog::Dog(const Dog &src)
+Dog::Dog(Dog const &src)
 {
+	this->_brain = new Brain();
 	*this = src;
+	std::cout << "Dog constructor copy called" << std::endl;
 }
 
-Dog &Dog::operator=(const Dog &src)
+Dog &Dog::operator=(Dog const &src)
 {
 	if (this != &src)
-		this->_type = src._type;
+		this->type = src.type;
 	return (*this);
 }
 

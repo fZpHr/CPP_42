@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 15:35:52 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/09 15:47:17 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/04/10 18:27:09 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ class MateriaSource : public IMateriaSource
 	public:
 		MateriaSource();
 		MateriaSource(MateriaSource const &src);
-		MateriaSource &operator=(MateriaSource const &src);
 		virtual ~MateriaSource();
 
+		MateriaSource &operator=(MateriaSource const &src);
 		void learnMateria(AMateria*);
 		AMateria* createMateria(std::string const & type);
 	private:

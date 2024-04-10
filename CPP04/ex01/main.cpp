@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 15:52:21 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/08 18:56:14 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/04/10 15:25:35 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int main()
 		std::cout << BLUE << std::endl << GREEN << "Dog type: " << BLUE << j->getType() << ". What does the dog say ?" << std::endl << BLUE;
 		j->makeSound();
 		std::cout << GREEN << "Set Dog Idea: 0/1/2 " << std::endl;
-		j->getBrain()->setIdea("Want to run", 0);
+		j->getBrain()->setIdea("", 0);
 		j->getBrain()->setIdea("Want to eat", 1);
 		j->getBrain()->setIdea("Want to sleep", 2);
 		std::cout << GREEN << "Dog Idea(0): " << BLUE << j->getBrain()->getIdea(0) << std::endl;
@@ -54,9 +54,12 @@ int main()
 		i->getBrain()->setIdea("Want to play", 0);
 		i->getBrain()->setIdea("Want to eat", 1);
 		i->getBrain()->setIdea("Want to sleep", 2);
+		i->getBrain()->setIdea("try max", 100);
+		std::cout << GREEN << "Cat Idea(100): " << BLUE << i->getBrain()->getIdea(100) << std::endl;
 		std::cout << GREEN << "Cat Idea(0): " << BLUE << i->getBrain()->getIdea(0) << std::endl;
 		std::cout << GREEN << "Cat Idea(1): " << BLUE << i->getBrain()->getIdea(1) << std::endl;
 		std::cout << GREEN << "Cat Idea(2): " << BLUE << i->getBrain()->getIdea(2) << std::endl << YELLOW;
+	
 		std::cout << std::endl;
 		std::cout << GREEN << "Delete :" << std::endl << YELLOW;
 		delete i;
@@ -64,8 +67,8 @@ int main()
 		
 	}
 	{
-		
-		Animal* array[100];
+		std::cout << GREEN << "Array of animals: " << std::endl << YELLOW;
+		Animal* array[10];
 		for (int i = 0; i < 10; i++)
 		{
 			if (i > 4)
@@ -73,8 +76,18 @@ int main()
 			else
 				array[i] = new Cat();
 		}
+		std::cout << std::endl;
+		std::cout << GREEN << "Make sound: " << std::endl << YELLOW;
 		for (int i = 0; i < 10; i++)
 		{
+			std::cout << i+1 << ": ";
+			array[i]->makeSound();
+		}
+		std::cout << std::endl;
+		std::cout << GREEN << "Delete: " << std::endl << YELLOW;
+		for (int i = 0; i < 10; i++)
+		{
+			std::cout << i+1 << ": ";
 			delete array[i];
 		}
 	}

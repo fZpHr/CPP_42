@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	polymorphisme
+NAME	=	polymorphism
 
 SRCS	=	main.cpp \
 			Dog.cpp \

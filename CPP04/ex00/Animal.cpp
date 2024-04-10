@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 17:47:32 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/09 20:21:54 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/04/10 15:11:04 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ Animal::~Animal()
 
 Animal::Animal(Animal const &src)
 {
-	std::cout << "Animal constructor called: " << this->type << std::endl;
+	std::cout << "Animal constructor copy called: " << this->type << std::endl;
 	*this = src;
 }
 

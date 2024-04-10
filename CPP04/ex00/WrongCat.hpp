@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 13:45:57 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/08 15:56:45 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/04/10 18:14:05 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ class WrongCat : public WrongAnimal
 {
 	public:
 		WrongCat();
+		WrongCat(WrongCat const &src);
 		virtual ~WrongCat();
-		WrongCat(const WrongCat &src);
-		WrongCat &operator=(const WrongCat &src);
 
+		WrongCat &operator=(WrongCat const &src);
 		void makeSound() const;
 };
 

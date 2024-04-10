@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 14:27:27 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/09 15:28:01 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/04/10 18:25:28 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,17 @@
 
 Ice::Ice() : AMateria("ice")
 {
+	std::cout << "Ice constructor called" << std::endl;
 }
 
 Ice::~Ice()
 {
+	std::cout << "Ice destructor called" << std::endl;
 }
 
 Ice::Ice(Ice const &src)
 {
+	std::cout << "Ice constructor copy called" << std::endl;
 	*this = src;
 }
 

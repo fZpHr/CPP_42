@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	interfaces
+NAME	=	interface
 
 SRCS	=	main.cpp \
 			AMateria.cpp \

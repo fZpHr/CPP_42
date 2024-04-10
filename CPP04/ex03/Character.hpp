@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 14:57:40 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/09 18:47:46 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/04/10 18:24:29 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ class Character : public ICharacter
 	public:
 		Character(std::string name);
 		Character(Character const &src);
-		Character &operator=(Character const &src);
 		~Character();
 
+		Character &operator=(Character const &src);
 		std::string const & getName() const;
 		void equip(AMateria* m);
 		void unequip(int idx);

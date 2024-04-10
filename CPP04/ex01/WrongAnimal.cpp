@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 13:49:07 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/08 14:29:49 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/04/10 18:17:34 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,13 @@ WrongAnimal::~WrongAnimal()
 	std::cout << "WrongAnimal destructor called" << std::endl;
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal &src)
+WrongAnimal::WrongAnimal(WrongAnimal const &src)
 {
+	std::cout << "WrongAnimal constructor copy called" << std::endl;
 	*this = src;
 }
 
-WrongAnimal &WrongAnimal::operator=(const WrongAnimal &src)
+WrongAnimal &WrongAnimal::operator=(WrongAnimal const &src)
 {
 	if (this != &src)
 		this->_type = src._type;

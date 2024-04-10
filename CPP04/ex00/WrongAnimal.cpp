@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 13:49:07 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/08 18:30:40 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/04/10 18:13:22 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,26 @@
 
 WrongAnimal::WrongAnimal() : _type("WrongAnimal")
 {
-	std::cout << "WrongAnimal constructor called" << std::endl;
+	std::cout << "WrongAnimal constructor called: " << this->_type << std::endl;
 }
 
 WrongAnimal::WrongAnimal(std::string type) : _type(type)
 {
-	std::cout << "WrongAnimal constructor called" << std::endl;
+	std::cout << "WrongAnimal constructor called: " << this->_type << std::endl;
 }
 
 WrongAnimal::~WrongAnimal()
 {
-	std::cout << "WrongAnimal destructor called" << std::endl;
+	std::cout << "WrongAnimal destructor called: " << this->_type << std::endl;
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal &src)
+WrongAnimal::WrongAnimal(WrongAnimal const &src)
 {
+	std::cout << "WrongAnimal constructor copy called: " << this->_type << std::endl;
 	*this = src;
 }
 
-WrongAnimal &WrongAnimal::operator=(const WrongAnimal &src)
+WrongAnimal &WrongAnimal::operator=(WrongAnimal const &src)
 {
 	if (this != &src)
 		this->_type = src._type;
