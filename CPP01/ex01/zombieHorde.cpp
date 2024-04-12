@@ -19,16 +19,6 @@ Zombie* zombieHorde( int N, std::string name )
 		std::cerr << "You can't create a horde with less than 1 zombie" << std::endl;
 		return (NULL);
 	}
-	else if (name.empty())
-	{
-		std::cerr << "You can't create a zombie without a name" << std::endl;
-		return (NULL);
-	}
-	else if (name.length() > 100)
-	{
-		std::cerr << "The name of the zombie is too long" << std::endl;
-		return (NULL);
-	}
 	else if (N > 100)
 	{
 		std::cerr << "You can't create a horde with more than 100 zombies" << std::endl;

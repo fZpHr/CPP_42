@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 14:57:40 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/10 18:24:29 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/04/11 14:39:25 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class Character : public ICharacter
 		void equip(AMateria* m);
 		void unequip(int idx);
 		void use(int idx, ICharacter& target);
+		AMateria *getInventory(int idx) const;
 	private:
 		AMateria	*_inventory[4];
 		std::string _name;
