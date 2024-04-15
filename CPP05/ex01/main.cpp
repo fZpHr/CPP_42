@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 16:11:51 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/15 16:25:38 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/04/15 18:23:54 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int main()
     try
     {
         Bureaucrat bureaucrat = Bureaucrat("Bob", 5);
+        Form form = Form("Billionaire contract", 5, 5);
         try
         {
             std::cout << bureaucrat << std::endl;
@@ -27,7 +28,7 @@ int main()
             bureaucrat.setGrade(0);
             std::cout << bureaucrat << std::endl; */ 
             std::cout << "setGrade 3: " << std::endl;
-            bureaucrat.setGrade(3);
+            bureaucrat.setGrade(5);
             std::cout << bureaucrat << std::endl;
             std::cout << "upGrade: ";
             bureaucrat.upGrade();
@@ -43,7 +44,16 @@ int main()
             std::cout << bureaucrat << std::endl; */
             std::cout << "downGrade: ";
             bureaucrat.downGrade();
-		    std::cout << bureaucrat << std::endl;
+		    std::cout << bureaucrat << std::endl << std::endl;
+            std::cout << "----------------------------------------------------------------------------" << std::endl << std::endl;
+            std::cout << form << std::endl;
+            std::cout << "signForm: ";
+            bureaucrat.signForm(form);
+            std::cout << form << std::endl;
+            std::cout << "signForm: ";
+            bureaucrat.signForm(form);
+            std::cout << form << std::endl;
+
             return (0);
         }
         catch(const std::exception& e)
@@ -57,4 +67,5 @@ int main()
         std::cerr << e.what() << std::endl;
         return (1);
     }
+    
 }

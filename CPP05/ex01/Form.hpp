@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/11 16:11:48 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/15 16:20:22 by hbelle           ###   ########.fr       */
+/*   Created: 2024/04/15 15:43:56 by hbelle            #+#    #+#             */
+/*   Updated: 2024/04/15 18:41:22 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT_HPP
-# define BUREAUCRAT_HPP
+#ifndef FORM_HPP
+# define FORM_HPP
 
 #include <iostream>
 #include <stdexcept>
+#include "Bureaucrat.hpp"
 
-class Bureaucrat
+class Bureaucrat;
+
+class Form
 {
 	public :
-		Bureaucrat(std::string name, int grade);
-		Bureaucrat(Bureaucrat const &src);
-		~Bureaucrat();
+		Form(std::string name, int sGrade, int eGrade);
+		Form(Form const &src);
+		~Form();
 
-		Bureaucrat &operator=(Bureaucrat const &src);
-		void	setGrade(int num);
-		void	upGrade();
-		void	downGrade();
+		Form &operator=(Form const &src);
 		std::string	getName() const;
-		int	getGrade() const;
+		int	getGradeSign() const;
+		int	getGradeExec() const;
+		bool	getSigned() const;
+		void	beSigned(Bureaucrat &src);
 		class GradeTooHighException : public std::exception
 		{
 			public :
@@ -53,11 +56,21 @@ class Bureaucrat
 					return ("Name is empty");
 				}
 		};
-	private:
-		const std::string _name;
-		int			_grade;
+		class FormAlreadySignedException : public std::exception
+		{
+			public :
+				virtual const char *what() const throw()
+				{
+					return ("Form is already signed");
+				}
+		};
+	private :
+		const std::string	_name;
+		bool 	_signed;
+		const int		_signGrade;
+		const int		_execGrade;
 };
 
-std::ostream &operator<<(std::ostream &out, Bureaucrat const &bureaucrat);
+std::ostream &operator<<(std::ostream &out, Form const &form);
 
 #endif

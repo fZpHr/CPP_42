@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 16:11:45 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/15 16:25:03 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/04/15 18:28:49 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,21 @@ std::ostream &operator<<(std::ostream &out, Bureaucrat const &bureaucrat)
 {
 	out << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
 	return (out);
+}
+
+void Bureaucrat::signForm(Form &form)
+{
+	if (this->_grade > form.getGradeSign())
+	{
+		std::cout << this->getName() << " couldn't sign " << form.getName() << " because ";
+		throw Bureaucrat::GradeTooLowException();
+	}
+	if (form.getSigned())
+	{
+		std::cout << this->getName() << " couldn't sign " << form.getName() << " because ";
+		throw Form::FormAlreadySignedException();
+	}
+	std::cout << this->getName() << " signed " << form.getName() << std::endl; 
+	form.beSigned(*this);
 }
 
