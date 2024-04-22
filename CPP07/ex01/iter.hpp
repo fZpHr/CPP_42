@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/17 18:53:48 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/22 18:26:42 by hbelle           ###   ########.fr       */
+/*   Created: 2024/04/22 19:16:52 by hbelle            #+#    #+#             */
+/*   Updated: 2024/04/22 19:28:46 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AScalarConverter.hpp"
+#ifndef ITER_HPP
+# define ITER_HPP
 
-int main(int ac, char **av)
+#include <iostream>
+
+template <typename T>
+void	iter(T *array, T &len, T &function)
 {
-	if (ac != 2)
-	{
-		std::cout << "Usage: ./convert [string]" << std::endl;
-		return (1);
-	}
-	try 
-	{
-		AScalarConverter::convert(av[1]);
-	}
-	catch (std::invalid_argument &e) 
-	{
-		std::cerr << e.what() << std::endl;
-	}
-	return (0);
+	for (int i = 0; i < &len; i++)
+		&function(array[i]);
 }
+
+#endif

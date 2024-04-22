@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 16:27:39 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/18 18:56:09 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/04/22 17:31:33 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,13 @@ struct Data
 
 class ASerializer
 {
-	public:
+	private:
 		ASerializer();
 		ASerializer(ASerializer const &src);
 		virtual ~ASerializer();
 
 		virtual ASerializer &operator=(ASerializer const &src) = 0;
+	public:
 		static uintptr_t serialize(Data* ptr);
 		static Data* deserialize(uintptr_t raw);
 };

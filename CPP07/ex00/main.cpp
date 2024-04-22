@@ -5,27 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/17 18:53:48 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/22 18:26:42 by hbelle           ###   ########.fr       */
+/*   Created: 2024/04/22 16:39:33 by hbelle            #+#    #+#             */
+/*   Updated: 2024/04/22 19:22:48 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AScalarConverter.hpp"
+#include "whatever.hpp"
 
-int main(int ac, char **av)
+int main( void ) 
 {
-	if (ac != 2)
-	{
-		std::cout << "Usage: ./convert [string]" << std::endl;
-		return (1);
-	}
-	try 
-	{
-		AScalarConverter::convert(av[1]);
-	}
-	catch (std::invalid_argument &e) 
-	{
-		std::cerr << e.what() << std::endl;
-	}
-	return (0);
+	int a = 2;
+	int b = 3;
+
+	::swap( a, b );
+	std::cout << "a = " << a << ", b = " << b << std::endl;
+	std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
+	std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
+
+	std::string c = "chaine1";
+	std::string d = "chaine2";
+
+	::swap(c, d);
+	std::cout << "c = " << c << ", d = " << d << std::endl;
+	std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
+	std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
+
+	return 0;
 }

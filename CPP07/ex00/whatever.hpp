@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   whatever.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/17 18:53:48 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/22 18:26:42 by hbelle           ###   ########.fr       */
+/*   Created: 2024/04/22 16:39:36 by hbelle            #+#    #+#             */
+/*   Updated: 2024/04/22 19:22:38 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AScalarConverter.hpp"
+#ifndef WHATEVER_HPP
+# define WHATEVER_HPP
 
-int main(int ac, char **av)
+#include <iostream>
+
+template<typename T>
+void swap( T &a, T &b )
 {
-	if (ac != 2)
-	{
-		std::cout << "Usage: ./convert [string]" << std::endl;
-		return (1);
-	}
-	try 
-	{
-		AScalarConverter::convert(av[1]);
-	}
-	catch (std::invalid_argument &e) 
-	{
-		std::cerr << e.what() << std::endl;
-	}
-	return (0);
+	T tmp = a;
+	a = b;
+	b = tmp;
 }
+
+template<typename T>
+T min( T &a, T &b )
+{
+	return ( a < b ? a : b );
+}
+
+template< typename T >
+T max( T &a, T &b )
+{
+	return ( a > b ? a : b );
+}
+#endif

@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 19:28:13 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/22 15:41:28 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/04/22 18:25:28 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,17 +80,6 @@ void	convertInt(std::string const &str)
 		std::cout << "int: " << i << std::endl;
 	else
 		std::cout << "int: impossible" << std::endl;
-}
-
-template <typename T>
-void print_fixed(T value, bool status) 
-{
-
-	T number = status ? static_cast<double>(value) : static_cast<float>(value);
-    int factor = 10;
-    int whole = static_cast<int>(number);
-    int fractional = static_cast<int>((number - whole) * factor + 0.5);
-    std::cout << whole << "." << fractional;
 }
 
 void	convertFloat(std::string const &str)

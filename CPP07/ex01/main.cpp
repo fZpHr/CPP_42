@@ -5,27 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/17 18:53:48 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/22 18:26:42 by hbelle           ###   ########.fr       */
+/*   Created: 2024/04/22 19:22:00 by hbelle            #+#    #+#             */
+/*   Updated: 2024/04/22 19:28:59 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AScalarConverter.hpp"
+#include "iter.hpp"
+#include <cctype>
 
-int main(int ac, char **av)
+int main( void ) 
 {
-	if (ac != 2)
-	{
-		std::cout << "Usage: ./convert [string]" << std::endl;
-		return (1);
-	}
-	try 
-	{
-		AScalarConverter::convert(av[1]);
-	}
-	catch (std::invalid_argument &e) 
-	{
-		std::cerr << e.what() << std::endl;
-	}
-	return (0);
+	std::string array = "salut a tous";
+	int len = 15;
+
+	std::cout << array[15] << std::endl;
+
+	iter(array, 15, std::toupper);
+
+	std::cout << array[15] << std::endl;
+
+	return 0;
 }
