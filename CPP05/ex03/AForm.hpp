@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 15:43:56 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/16 14:59:57 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/04/16 15:00:11 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ class AForm
 		AForm(AForm const &src);
 		virtual ~AForm();
 
-		AForm &operator=(AForm const &src);
-		std::string	getName() const;
-		int	getGradeSign() const;
-		int	getGradeExec() const;
-		bool	getSigned() const;
-		void	beSigned(Bureaucrat &src);
+		AForm 			&operator=(AForm const &src);
+		std::string		getName() const;
+		int				getGradeSign() const;
+		int				getGradeExec() const;
+		bool			getSigned() const;
+		void			beSigned(Bureaucrat &src);
 		virtual void	execute(Bureaucrat const &executor) const = 0;
 		class GradeTooHighException : public std::exception
 		{
@@ -79,6 +79,14 @@ class AForm
 				virtual const char *what() const throw()
 				{
 					return ("Couldn't open/write file");
+				}
+		};
+		class FormNotFoundException : public std::exception
+		{
+			public :
+				virtual const char *what() const throw()
+				{
+					return ("Form not found");
 				}
 		};
 	private :
