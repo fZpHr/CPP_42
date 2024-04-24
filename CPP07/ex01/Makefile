@@ -10,9 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	whatever
+NAME	=	iter
 
-SRCS	=	main.cpp \
+SRCS	=	main.cpp
 
 OBJ_DIR = .o
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:%.cpp=%.o))

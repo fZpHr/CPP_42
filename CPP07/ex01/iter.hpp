@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 19:16:52 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/22 19:28:46 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/04/23 15:09:25 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 
 #include <iostream>
 
-template <typename T>
-void	iter(T *array, T &len, T &function)
+template <typename AnyTypeArray, typename Func>
+void iter(AnyTypeArray &array, int len, Func function) 
 {
-	for (int i = 0; i < &len; i++)
-		&function(array[i]);
+    for(int i = 0; i < len; i++)
+        array[i] = function(array[i]);
 }
 
 #endif
