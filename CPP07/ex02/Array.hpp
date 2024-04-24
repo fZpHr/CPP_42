@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 15:31:50 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/24 17:14:40 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/04/24 19:48:30 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
-
 
 template <typename T>
 class Array

@@ -6,13 +6,12 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 19:22:00 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/24 15:22:40 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/04/24 19:48:23 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "iter.hpp"
 #include <cctype>
-#include <algorithm>
 
 bool ft_swap_bool(bool &b)
 {

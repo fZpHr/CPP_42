@@ -61,10 +61,11 @@ int main()
 {
     try
     {
+        std::cout << "------------------------------------" << std::endl;
         std::cout << "Creating arrays of different types :" << std::endl;
         std::cout << "------------------------------------" << std::endl;
         std::cout << "Array<int> ArrayInt(10);" << std::endl;
-        Array<int> ArrayInt(1001);
+        Array<int> ArrayInt(10);
         std::cout << "Array<char> ArrayChar(10);" << std::endl;
         Array<char> ArrayChar(10);
         std::cout << "Array<std::string> ArrayString(10);" << std::endl;
@@ -76,9 +77,20 @@ int main()
         std::cout << "Array<double> ArrayDouble(10);" << std::endl;
         Array<double> ArrayDouble(10);
         std::cout << "------------------------------------" << std::endl;
+        std::cout << "Check empty arrays                 :" << std::endl;
+        std::cout << "------------------------------------" << std::endl;
+        for (int i = 0; i < 10; i++)
+        {
+            std::cout << "ArrayInt[" << i << "] = " << ArrayInt[i] << std::endl;
+            std::cout << "ArrayChar[" << i << "] = " << ArrayChar[i] << std::endl;
+            std::cout << "ArrayString[" << i << "] = " << ArrayString[i] << std::endl;
+            std::cout << "ArrayBool[" << i << "] = " << ArrayBool[i] << std::endl;
+            std::cout << "ArrayFloat[" << i << "] = " << ArrayFloat[i] << std::endl;
+            std::cout << "ArrayDouble[" << i << "] = " << ArrayDouble[i] << std::endl;
+            std::cout << "------------------------------------" << std::endl;
+        }
 
-
-        std::cout << "Filling arrays with values" << std::endl;
+        std::cout << "Filling arrays with values..." << std::endl;
         std::stringstream ss;
         for (int i = 0; i < 10; i++)
         {
@@ -92,7 +104,7 @@ int main()
         }
 
         std::cout << "------------------------------------" << std::endl;
-        std::cout << "Printing arrays" << std::endl;
+        std::cout << "Printing arrays                    :" << std::endl;
         std::cout << "------------------------------------" << std::endl;
         for (int i = 0; i < 10; i++)
         {
@@ -105,7 +117,7 @@ int main()
             std::cout << "------------------------------------" << std::endl;
         }
 
-        std::cout << "Trying to access out of bounds" << std::endl;
+        std::cout << "Trying to access out of bounds     :" << std::endl;
         std::cout << "------------------------------------" << std::endl;
         outOfBounds(ArrayInt, -1);
         outOfBounds(ArrayInt, 10);
