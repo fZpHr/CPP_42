@@ -6,30 +6,63 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 19:22:00 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/24 19:48:23 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/04/25 16:27:49 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "iter.hpp"
 #include <cctype>
+#include "iter.hpp"
 
-bool ft_swap_bool(bool &b)
+//Correct main
+
+// class Awesome
+// {
+//   public:
+//     Awesome( void ) : _n( 42 ) { return; }
+//     int get( void ) const { return this->_n; }
+//   private:
+//     int _n;
+// };
+
+// std::ostream & operator<<( std::ostream & o, Awesome const & rhs )
+// {
+//   o << rhs.get();
+//   return o;
+// }
+
+// template< typename T >
+// void print( T& x )
+// {
+//   std::cout << x << std::endl;
+//   return;
+// }
+
+// int main() {
+//   int tab[] = { 0, 1, 2, 3, 4 };
+//   Awesome tab2[5];
+
+//   iter( tab, 5, print<const int> );
+//   iter( tab2, 5, print<Awesome> );
+
+//   return 0;
+// }
+
+//My main :
+
+void ft_swap_bool(bool &b)
 {
-	if (b == true)
-		b = false;
-	else
-		b = true;
-	return (b);
+	b = !b;
 }
 
-int ft_increment(int &i)
+void ft_increment(int &i)
 {
-	return (++i);
+	i++;
 }
 
-char ft_toupper(char c)
+void ft_toupper(char &c)
 {
-	return (std::toupper(c));
+	c = std::toupper(c);
 }
 
 int main( void ) 

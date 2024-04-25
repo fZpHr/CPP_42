@@ -1,6 +1,6 @@
 #include "Array.hpp"
 
-// subject main :
+// Subject/Correct main :
 
 // #define MAX_VAL 750
 // int main(int, char**)
