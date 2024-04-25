@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easyfind.hpp                                       :+:      :+:    :+:   */
+/*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/25 17:37:35 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/25 19:07:34 by hbelle           ###   ########.fr       */
+/*   Created: 2024/04/25 19:10:25 by hbelle            #+#    #+#             */
+/*   Updated: 2024/04/25 20:37:35 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EASYFIND_HPP
-# define EASYFIND_HPP
+#ifndef SPAN_HPP
+# define SPAN_HPP
 
 #include <iostream>
-#include <algorithm>
-#include <list>
+#include <exception>
 
-template<typename T>
-int	easyfind(T lst, int target)
+class Span
 {
-	typename T::iterator it = std::find(lst.begin(), lst.end(), target);
-	if (it != lst.end())	
-		return (target);
-	throw std::runtime_error ("Target not found");
-}
+	public:
+		Span(unsigned int N);
+		Span(Span const &src);
+		~Span();
+
+		Span	&operator=(Span const &src);
+
+		void	addNumber(int number);
+		int		shortestSpan();
+		int		longestSpan();
+	private:
+		Span();
+		unsigned int		_size;
+		unsigned int		_index;
+		int					*_array;
+			
+};
 
 #endif
