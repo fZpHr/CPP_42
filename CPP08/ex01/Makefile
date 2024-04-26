@@ -12,7 +12,8 @@
 
 NAME	=	span
 
-SRCS	=	main.cpp
+SRCS	=	main.cpp \
+			Span.cpp
 
 OBJ_DIR = .o
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:%.cpp=%.o))
