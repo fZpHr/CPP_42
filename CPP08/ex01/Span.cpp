@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 19:32:06 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/26 20:04:39 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/04/29 15:53:46 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,6 @@ void	Span::addMultipleNumbers(std::vector<int> &numbers)
 	if (_index + numbers.size() > _size)
 		throw std::invalid_argument("Array is full");
 	for (unsigned int i = 0; i < numbers.size(); i++)
-		numbers.push_back(numbers[i]);
+		_array[_index + i] = numbers[i];
 	_index += numbers.size();
 }

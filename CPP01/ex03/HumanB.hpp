@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 17:01:08 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/04 15:42:29 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/04/29 20:39:47 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class HumanB
 		void	setWeapon(Weapon &weapon);
 	private :
 		std::string	_name;
-		Weapon	*_weapon;
+		Weapon	*_Weapon;
 };
 
 #endif

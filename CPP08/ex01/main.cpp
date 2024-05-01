@@ -6,11 +6,12 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 19:10:10 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/26 20:20:49 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/05/01 14:16:38 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
+#include <ctime>
 
 //Subject main:------------------
 
@@ -42,7 +43,7 @@ int main()
 		std::cout << "Success" << std::endl;
 		std::cout << "----------------------------------" << std::endl;
 		std::cout << "Init sp2..." << std::endl;
-		Span sp2 = Span(100);
+		Span sp2 = Span(10000);
 		std::cout << "Success" << std::endl;
 		try
 		{
@@ -79,13 +80,20 @@ int main()
 			std::cout << sp.longestSpan() << std::endl;
 			std::cout << std::endl;
 			std::cout << "__________________________________" << std::endl;
-			std::cout << "Adding multiple numbers: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10" << std::endl;
+			std::cout << "Adding multiple numbers (10000)" << std::endl;
 			std::vector<int> largeArray;
-			for (int i = 1; i < 10; i++)
-				largeArray.push_back(i);
+			std::srand(std::time(NULL));
+			for (int i = 1; i < 10000; i++)
+				largeArray.push_back(rand());
 			std::cout << "Adding multiple numbers... ";
 			sp2.addMultipleNumbers(largeArray);
 			std::cout << "Success" << std::endl;
+			for (int i = 0; i < 9999; i++)
+			{
+				std::cout << ", ";
+				std::cout << largeArray[i];
+			}
+			std::cout << std::endl;
 			std::cout << "__________________________________" << std::endl;
 			std::cout << "Shortest span: ";
 			std::cout << sp2.shortestSpan() << std::endl;

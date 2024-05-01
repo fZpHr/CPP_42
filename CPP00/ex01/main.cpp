@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 16:48:27 by hbelle            #+#    #+#             */
-/*   Updated: 2024/03/28 16:57:51 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/04/29 16:10:14 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 int	main(void)
 {
 	PhoneBook	Phonebook;
+	Contact		contact;
+	contact.index = 0;	
 	std::string	command;
 	int			i = 0;
 
