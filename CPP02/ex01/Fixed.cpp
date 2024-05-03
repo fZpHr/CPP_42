@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 15:42:51 by hbelle            #+#    #+#             */
-/*   Updated: 2024/04/03 15:44:41 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/05/03 17:19:49 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Fixed::Fixed(void) : _fixedValue(0)
 Fixed::Fixed(Fixed const &src)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	*this = src;
+	this = src;
 }
 
 Fixed::Fixed(int const value)

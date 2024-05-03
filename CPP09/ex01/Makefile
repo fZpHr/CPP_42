@@ -10,9 +10,10 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	easyfind
+NAME	=	RPN
 
-SRCS	=	main.cpp
+SRCS	=	main.cpp \
+			RPN.cpp
 
 OBJ_DIR = .o
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:%.cpp=%.o))
