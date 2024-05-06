@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 18:46:50 by hbelle            #+#    #+#             */
-/*   Updated: 2024/05/03 19:14:57 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/05/06 17:39:53 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ RPN &RPN::operator=(const RPN &src)
 	return (*this);
 }
 
-void	RPN::parse()
+void	RPN::exec()
 {
 	std::stack<double> stack;
 	std::istringstream iss(_expression);
@@ -48,7 +48,7 @@ void	RPN::parse()
 			stack.pop();
 			double b = stack.top();
 			stack.pop();
-			stack.push(a + b);
+			stack.push(b + a);
 		}
 		else if (currentStr == "-")
 		{
@@ -56,7 +56,7 @@ void	RPN::parse()
 			stack.pop();
 			double b = stack.top();
 			stack.pop();
-			stack.push(a - b);
+			stack.push(b - a);
 		}
 		else if (currentStr == "*")
 		{
@@ -64,7 +64,7 @@ void	RPN::parse()
 			stack.pop();
 			double b = stack.top();
 			stack.pop();
-			stack.push(a * b);
+			stack.push(b * a);
 		}
 		else if (currentStr == "/")
 		{
@@ -72,7 +72,12 @@ void	RPN::parse()
 			stack.pop();
 			double b = stack.top();
 			stack.pop();
-			stack.push(a / b);
+			if (a == 0 || b == 0)
+			{
+				std::cerr << "Error, division by zero" << std::endl;
+				return ;
+			}
+			stack.push(b / a);
 		}
 		else
 		{

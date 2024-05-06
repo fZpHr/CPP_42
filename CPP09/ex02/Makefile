@@ -10,9 +10,10 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	easyfind
+NAME	=	PmergeMe
 
-SRCS	=	main.cpp
+SRCS	=	main.cpp \
+			PmergeMe.cpp
 
 OBJ_DIR = .o
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:%.cpp=%.o))

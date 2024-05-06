@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RPN.hpp                                            :+:      :+:    :+:   */
+/*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/03 18:04:00 by hbelle            #+#    #+#             */
-/*   Updated: 2024/05/06 17:12:16 by hbelle           ###   ########.fr       */
+/*   Created: 2024/05/06 17:55:04 by hbelle            #+#    #+#             */
+/*   Updated: 2024/05/06 20:08:33 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RPN_HPP
-# define RPN_HPP
+#ifndef PMERGEME_HPP
+# define PMERGEME_HPP
 
-# include <iostream>
-# include <stack>
-# include <string>
-# include <sstream>
-# include <regex.h>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <string>
+#include <sstream>
+#include <deque>
 
-class RPN
+class PmergeMe
 {
 	public:
-		RPN(std::string expression);
-		RPN(const RPN &src);
-		~RPN();
+		PmergeMe(const int ac);
+		PmergeMe(const PmergeMe &src);
+		~PmergeMe();
 
-		RPN &operator=(const RPN &src);
-		
-		void	exec();
+		PmergeMe	&operator=(const PmergeMe &src);
 
+		void	exec(std::vector<int> arrayNumbers[]);
+		void	mySort(std::vector<int> arrayNumbers[]);
 	private:
-		std::string _expression;
+		std::deque<int>	*_deque;
 };
 
 #endif
