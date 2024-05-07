@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 17:55:59 by hbelle            #+#    #+#             */
-/*   Updated: 2024/05/06 20:09:14 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/05/07 14:21:46 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,10 @@ int	main(int ac, char **av)
 			std::cout << "[...]";
 		}
 		else if (many == 0)
-			std::cout << arrayNumbers[i] << " ";
+			std::cout << arrayNumbers[i - 1] << " ";
 	}
 	std::cout << std::endl;
-	PmergeMe p(ac);
-	p.exec(arrayNumbers);
+	PmergeMe p;
+	p.exec(&arrayNumbers);
 	//return (0);
 }
