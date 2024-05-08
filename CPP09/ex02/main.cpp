@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 17:55:59 by hbelle            #+#    #+#             */
-/*   Updated: 2024/05/07 14:21:46 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/05/08 19:17:27 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,23 @@ int	main(int ac, char **av)
 	}
 	std::cout << std::endl;
 	PmergeMe p;
-	p.exec(&arrayNumbers);
-	//return (0);
+	{
+		clock_t start = clock();
+		p.exec(&arrayNumbers, 1);
+		clock_t end = clock();
+		double duration = (end - start)  / (double)CLOCKS_PER_SEC * 10;
+		std::cout << "Time to process a range of " << ac - 1 << " elements with std::vector: ";
+		std::cout << std::fixed << std::setprecision(5) << duration;
+		std::cout << " us" << std::endl;
+	}
+	{
+		clock_t start = clock();
+		p.exec(&arrayNumbers, 0);
+		clock_t end = clock();
+		double duration = (end - start)  / (double)CLOCKS_PER_SEC * 10;
+		std::cout << "Time to process a range of " << ac - 1 << " elements with std::deque: ";
+		std::cout << std::fixed << std::setprecision(5) << duration;
+		std::cout << " us" << std::endl;
+	}
+	return (0);
 }

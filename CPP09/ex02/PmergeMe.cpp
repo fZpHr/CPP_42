@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 19:15:36 by hbelle            #+#    #+#             */
-/*   Updated: 2024/05/07 21:53:30 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/05/08 20:23:37 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 PmergeMe::PmergeMe()
 {
+	_odd = -1;
+	_status = -1;
 }
 
 PmergeMe::PmergeMe(const PmergeMe &src)
@@ -32,163 +34,428 @@ PmergeMe	&PmergeMe::operator=(const PmergeMe &src)
 	return (*this);
 }
 
-bool PmergeMe::ComparePairs(const std::deque<int>& a, const std::deque<int>& b)
+void printDeque(std::deque<int> const &deque)
+{
+	for (size_t i = 0; i < deque.size(); i++)
+	{
+		std::cout << deque[i];
+		if (i + 1 < deque.size())
+			std::cout << " ";
+	}
+}
+
+void PmergeMe::debugDeque(int status)
+{
+	if (status == 1)
+	{
+		std::cout << std::endl;
+		std::cout << "--------------------------------------" << std::endl;
+		std::cout << "Sort 1: ";
+		for (size_t i = 0; i < _deque.size(); i++)
+		{
+			std::cout << "[";
+			printDeque(_deque[i]);
+			std::cout << "] ";
+		}
+		if (_odd != -1)
+			std::cout << "Odd: " << "[" << _odd << "]" << std::endl;
+		std::cout << std::endl;
+		std::cout << "Make pairs and handle odd ";
+		std::cout << std::endl;
+	}
+	else if (status == 2)
+	{
+		std::cout << "--------------------------------------" << std::endl;
+		std::cout << "Sort 2: ";
+		for (size_t i = 0; i < _deque.size(); i++)
+		{
+			std::cout << "[";
+			printDeque(_deque[i]);
+			std::cout << "] ";
+		}
+		if (_odd != -1)
+			std::cout << "Odd: " << "[" << _odd << "]" << std::endl;
+		std::cout << std::endl;
+		std::cout << "Sort pairs max to min ";
+		std::cout << std::endl;
+	}
+	else if (status == 3)
+	{
+		std::cout << "--------------------------------------" << std::endl;
+		std::cout << "Sort 3: ";
+		for (size_t i = 0; i < _deque.size(); i++)
+		{
+			std::cout << "[";
+			printDeque(_deque[i]);
+			std::cout << "] ";
+		}
+		if (_odd != -1)
+			std::cout << "Odd: " << "[" << _odd << "]" << std::endl;
+		std::cout << std::endl;
+		std::cout << "Sort max pair in ascending order";
+		std::cout << std::endl;
+	}
+	else if (status == 4)
+	{
+		std::cout << "--------------------------------------" << std::endl;
+		std::cout << "Sort 4: ";
+		for (size_t i = 0; i < _deque.size(); i++)
+		{
+			std::cout << "[";
+			printDeque(_deque[i]);
+			std::cout << "] ";
+		}
+		if (_odd != -1)
+			std::cout << "Odd: " << "[" << _odd << "]" << std::endl;
+		std::cout << std::endl;
+		std::cout << "Add max of pair to the final list and push" << std::endl;
+		std::cout << "the first min(max) to the begin if min(max) < max(min): ";
+		printDeque(_deque2);
+		std::cout << std::endl;
+	}
+	else if (status == 5)
+	{
+		std::cout << "--------------------------------------" << std::endl;
+		std::cout << "Sort 5: ";
+		for (size_t i = 0; i < _deque.size(); i++)
+		{
+			std::cout << "[";
+			printDeque(_deque[i]);
+			std::cout << "] ";
+		}
+		if (_odd != -1)
+			std::cout << "Odd: " << "[" << _odd << "]" << std::endl;
+		std::cout << std::endl;
+		std::cout << "Add the rest of the list (and odd) to the final list" << std::endl;
+		std::cout << "using binary search: ";
+		printDeque(_deque2);
+		std::cout << std::endl;
+	}
+}
+
+void printVector(std::vector<int> const &vector)
+{
+	for (size_t i = 0; i < vector.size(); i++)
+	{
+		std::cout << vector[i];
+		if (i + 1 < vector.size())
+			std::cout << " ";
+	}
+}
+
+void	PmergeMe::debugVector(int status)
+{
+	if (status == 1)
+	{
+		std::cout << std::endl;
+		std::cout << "--------------------------------------" << std::endl;
+		std::cout << "Sort 1: ";
+		for (size_t i = 0; i < _vector.size(); i++)
+		{
+			std::cout << "[";
+			printVector(_vector[i]);
+			std::cout << "] ";
+		}
+		if (_odd != -1)
+			std::cout << "Odd: " << "[" << _odd << "]" << std::endl;
+		std::cout << std::endl;
+		std::cout << "Make pairs and handle odd ";
+		std::cout << std::endl;
+	}
+	else if (status == 2)
+	{
+		std::cout << "--------------------------------------" << std::endl;
+		std::cout << "Sort 2: ";
+		for (size_t i = 0; i < _vector.size(); i++)
+		{
+			std::cout << "[";
+			printVector(_vector[i]);
+			std::cout << "] ";
+		}
+		if (_odd != -1)
+			std::cout << "Odd: " << "[" << _odd << "]" << std::endl;
+		std::cout << std::endl;
+		std::cout << "Sort pairs max to min ";
+		std::cout << std::endl;
+	}
+	else if (status == 3)
+	{
+		std::cout << "--------------------------------------" << std::endl;
+		std::cout << "Sort 3: ";
+		for (size_t i = 0; i < _vector.size(); i++)
+		{
+			std::cout << "[";
+			printVector(_vector[i]);
+			std::cout << "] ";
+		}
+		if (_odd != -1)
+			std::cout << "Odd: " << "[" << _odd << "]" << std::endl;
+		std::cout << std::endl;
+		std::cout << "Sort max pair in ascending order";
+		std::cout << std::endl;
+	}
+	else if (status == 4)
+	{
+		std::cout << "--------------------------------------" << std::endl;
+		std::cout << "Sort 4: ";
+		for (size_t i = 0; i < _vector.size(); i++)
+		{
+			std::cout << "[";
+			printVector(_vector[i]);
+			std::cout << "] ";
+		}
+		if (_odd != -1)
+			std::cout << "Odd: " << "[" << _odd << "]" << std::endl;
+		std::cout << std::endl;
+		std::cout << "Add max of pair to the final list and push" << std::endl;
+		std::cout << "the first min(max) to the begin if min(max) < max(min): ";
+		printVector(_vector2);
+		std::cout << std::endl;
+	}
+	else if (status == 5)
+	{
+		std::cout << "--------------------------------------" << std::endl;
+		std::cout << "Sort 5: ";
+		for (size_t i = 0; i < _vector.size(); i++)
+		{
+			std::cout << "[";
+			printVector(_vector[i]);
+			std::cout << "] ";
+		}
+		if (_odd != -1)
+			std::cout << "Odd: " << "[" << _odd << "]" << std::endl;
+		std::cout << std::endl;
+		std::cout << "Add the rest of the list (and odd) to the final list" << std::endl;
+		std::cout << "using binary search: ";
+		printVector(_vector2);
+		std::cout << std::endl;
+	}
+}
+
+bool PmergeMe::ComparePairsDeque(const std::deque<int>& a, const std::deque<int>& b)
 {
 	return (a[0] < b[0]);
 }
 
-int PmergeMe::jacobsthal(int n)
+bool PmergeMe::ComparePairsVector(const std::vector<int>& a, const std::vector<int>& b)
 {
-	if (n == 0)
-		return 0;
-	if (n == 1)
-		return 1;
-	return jacobsthal(n - 1) + 2 * jacobsthal(n - 2);
+	return (a[0] < b[0]);
 }
+
 
 void	PmergeMe::mySort5()
 {
-	for (size_t i = 0; i < _deque.size(); i++)
+	if (_status == 0)
 	{
-		_jacobsthal.push_back(jacobsthal(i));
-	}
-}
-
-void PmergeMe::mySort3(std::deque<std::deque<int> >::iterator begin, std::deque<std::deque<int> >::iterator end)
-{
-    if (end - begin <= 1)
-        return;
-
-    std::deque<std::deque<int> >::iterator middle = begin + (end - begin) / 2;
-
-    mySort3(begin, middle);
-    mySort3(middle, end);
-
-    std::inplace_merge(begin, middle, end, ComparePairs);
-}
-
-void	PmergeMe::mySort2()
-{
-	if (_deque.size() <= 1)
-		return;
-	for (size_t i = 0; i < _deque.size(); i++)
-	{
-		for (size_t j = 1; j < _deque[i].size(); j++)
+		for (size_t i = 0; i < _deque.size(); i++)
 		{
-			if (_deque[i][j] > _deque[i][j - 1])
+			int element_to_insert = _deque[i][0];
+			std::deque<int>::iterator position = std::lower_bound(_deque2.begin(), _deque2.end(), element_to_insert);
+			_deque2.insert(position, element_to_insert);
+			if (!_deque.empty() && !_deque[i].empty())
 			{
-				int tmp = _deque[i][j];
-				_deque[i][j] = _deque[i][j - 1];
-				_deque[i][j - 1] = tmp;
+				_deque[i].pop_front();
 			}
+		}
+		if (_odd != -1)
+		{
+			std::deque<int>::iterator position = std::lower_bound(_deque2.begin(), _deque2.end(), _odd);
+			_deque2.insert(position, _odd);
+		}
+	}
+	else
+	{
+		for (size_t i = 0; i < _vector.size(); i++)
+		{
+			int element_to_insert = _vector[i][0];
+			std::vector<int>::iterator position = std::lower_bound(_vector2.begin(), _vector2.end(), element_to_insert);
+			_vector2.insert(position, element_to_insert);
+			if (!_vector.empty() && !_vector[i].empty())
+			{
+				_vector[i].pop_back();
+			}
+		}
+		if (_odd != -1)
+		{
+			std::vector<int>::iterator position = std::lower_bound(_vector2.begin(), _vector2.end(), _odd);
+			_vector2.insert(position, _odd);
 		}
 	}
 }
 
 void	PmergeMe::mySort4()
 {
-	for (size_t i = 0; i < _deque.size(); i++)
+	if (_status == 0)
 	{
-		_deque2.push_back(_deque[i][0]);
-		_deque[i].erase(_deque[i].begin());
+		for (size_t i = 0; i < _deque.size(); i++)
+		{
+			_deque2.push_back(_deque[i][0]);
+			if (!_deque.empty() && !_deque[i].empty())
+			{
+				_deque[i].pop_front();
+			}
+		}
 	}
-	if (_deque[0][1] < _deque2[0])
+	else
 	{
-		_deque2.push_front(_deque[0][1]);
-		_deque[0].erase(_deque[0].begin());
+		for (size_t i = 0; i < _vector.size(); i++)
+		{
+			_vector2.push_back(_vector[i][0]);
+			if (!_vector.empty() && !_vector[i].empty())
+			{
+				_vector[i].erase(_vector[i].begin());
+			}
+		}
 	}
 }
 
+void PmergeMe::mySort3deque(std::deque<std::deque<int> >::iterator begin, std::deque<std::deque<int> >::iterator end)
+{
+	if (end - begin <= 1)
+		return;
+	std::deque<std::deque<int> >::iterator middle = begin + (end - begin) / 2;
+	mySort3deque(begin, middle);
+	mySort3deque(middle, end);
+	std::inplace_merge(begin, middle, end, ComparePairsDeque);
+}
+
+void PmergeMe::mySort3vector(std::vector<std::vector<int> >::iterator begin, std::vector<std::vector<int> >::iterator end)
+{
+	if (end - begin <= 1)
+		return;
+	std::vector<std::vector<int> >::iterator middle = begin + (end - begin) / 2;
+	mySort3vector(begin, middle);
+	mySort3vector(middle, end);
+	std::inplace_merge(begin, middle, end, ComparePairsVector);
+}
+
+void	PmergeMe::mySort2()
+{
+	if (_status == 0)
+	{
+		for (size_t i = 0; i < _deque.size(); i++)
+		{
+			if (_deque[i][0] < _deque[i][1])
+			{
+				std::swap(_deque[i][0], _deque[i][1]);
+			}
+		}
+	}
+	else
+	{
+		for (size_t i = 0; i < _vector.size(); i++)
+		{
+			if (_vector[i][0] < _vector[i][1])
+			{
+				std::swap(_vector[i][0], _vector[i][1]);
+			}
+		}
+	}
+}
 void	PmergeMe::mySort(std::vector<int> *arrayNumbers)
 {
-	for (size_t i = 0; i < arrayNumbers->size(); i +=2)
+	if (_status == 0)
 	{
-		if (i + 1 >= arrayNumbers->size() && i % 2 == 0)
+		for (size_t i = 0; i < arrayNumbers->size(); i +=2)
 		{
-			_odd = (*arrayNumbers)[i];
-			break;
+			if (i + 1 >= arrayNumbers->size() && i % 2 == 0)
+			{
+				_odd = (*arrayNumbers)[i];
+				break;
+			}
+			std::deque<int> tmp_deque;
+			tmp_deque.push_back((*arrayNumbers)[i]);
+			if (i + 1 < arrayNumbers->size())
+				tmp_deque.push_back((*arrayNumbers)[i + 1]);
+			_deque.push_back(tmp_deque);
 		}
-		std::deque<int> tmp_deque;
-		tmp_deque.push_back((*arrayNumbers)[i]);
-		if (i + 1 < arrayNumbers->size())
-			tmp_deque.push_back((*arrayNumbers)[i + 1]);
-		_deque.push_back(tmp_deque);
+		if (debug_mode)
+			debugDeque(1);
+		mySort2();
+		if (debug_mode)
+			debugDeque(2);
+		mySort3deque(_deque.begin(), _deque.end());
+		if (debug_mode)
+			debugDeque(3);
+		mySort4();
+		if (debug_mode)
+			debugDeque(4);
+		mySort5();
+		if (debug_mode)
+			debugDeque(5);
 	}
-	for (size_t i = 0; i < _deque.size(); i++) 
+	else if (_status == 1)
 	{
-    	std::cout << "Pair before " << i+1 << ": ";
-    	for (size_t j = 0; j < _deque[i].size(); ++j)
+		for (size_t i = 0; i < arrayNumbers->size(); i+=2)
 		{
-       		std::cout << _deque[i][j] << " ";
+			if (i + 1 >= arrayNumbers->size() && i % 2 == 0)
+			{
+				_odd = (*arrayNumbers)[i];
+				break;
+			}
+			std::vector<int> tmp_vector;
+			tmp_vector.push_back((*arrayNumbers)[i]);
+			if (i + 1 < arrayNumbers->size())
+				tmp_vector.push_back((*arrayNumbers)[i + 1]);
+			_vector.push_back(tmp_vector);
 		}
-		std::cout << "| ";
+		if (debug_mode)
+			debugVector(1);
+		mySort2();
+		if (debug_mode)
+			debugVector(2);
+		mySort3vector(_vector.begin(), _vector.end());
+		if (debug_mode)
+			debugVector(3);
+		mySort4();
+		if (debug_mode)
+			debugVector(4);
+		mySort5();
+		if (debug_mode)
+			debugVector(5);
 	}
-    std::cout << std::endl;
-	std::cout << "Odd number: " << _odd;
-	std::cout << std::endl;
-	mySort2();
-	for (size_t i = 0; i < _deque.size(); ++i) 
-	{
-    	std::cout << "Pair after a" << i+1 << ": ";
-   		for (size_t j = 0; j < _deque[i].size(); ++j) 
-        	std::cout << _deque[i][j] << " ";
-		std::cout << "| ";
-    }
-	std::cout << std::endl;
-	mySort3(_deque.begin(), _deque.end());
-	for (size_t i = 0; i < _deque.size(); ++i) 
-	{
-    	std::cout << "Pair after b" << i+1 << ": ";
-   		for (size_t j = 0; j < _deque[i].size(); ++j) 
-        	std::cout << _deque[i][j] << " ";
-		std::cout << "| ";
-    }
-	mySort4();
-	std::cout << std::endl;
-	for (size_t i = 0; i < _deque2.size(); i++)
-	{
-		std::cout << _deque2[i] << " ";
-	}
-	std::cout << std::endl;
-	for (size_t i = 0; i < _deque.size(); ++i) 
-	{
-    	std::cout << "Pair swap" << i+1 << ": ";
-   		for (size_t j = 0; j < _deque[i].size(); ++j) 
-        	std::cout << _deque[i][j] << " ";
-		std::cout << "| ";
-    }
-	mySort5();
-
-	std::cout << std::endl;
-	for (size_t i = 0; i < _jacobsthal.size(); i++)
-	{
-		std::cout << _jacobsthal[i] << " ";
-	}
-    std::cout << std::endl;
 }
 
-void	PmergeMe::exec(std::vector<int> *arrayNumbers)
+void	PmergeMe::exec(std::vector<int> *arrayNumbers, int status)
 {
-	//int many = 0;
-	//int i = 1;
-
-	//std::cout << "After: ";
+	int many = 0;
+	int i = 1;
+	_status = status;
 	mySort(arrayNumbers);
-	// for (std::deque<std::deque<int> >::const_iterator it = _deque.begin(); it != _deque.end(); ++it)
-    // {
-    //     for (std::deque<int>::const_iterator innerIt = it->begin(); innerIt != it->end(); ++innerIt)
-	// 	{
-	// 		// if (i == 6)
-	// 		// {
-	// 		// 	many = 1;
-	// 		// 	std::cout << "[...]";
-	// 		// }
-	// 		if (many == 0)
-	// 		{
-	// 			std::cout << *innerIt << " ";
-	// 		}
-	// 		i++;
-	// 	}
-	// }
-	// std::cout << std::endl;
+	if (_status == 1)
+	{
+		std::cout << "After: ";
+		for (size_t j = 0; j < _vector2.size(); j++)
+		{
+			if (i == 6)
+			{
+				many = 1;
+				std::cout << "[...]";
+			}
+			if (many == 0)
+			{
+				std::cout << _vector2[j] << " ";
+			}
+			i++;
+		}
+		std::cout << std::endl;
+	}
+	else if (_status == 0 && debug_mode)
+	{
+		std::cout << "After: ";
+		for (size_t j = 0; j < _deque2.size(); j++)
+		{
+			if (i == 6)
+			{
+				many = 1;
+				std::cout << "[...]";
+			}
+			if (many == 0)
+			{
+				std::cout << _deque2[j] << " ";
+			}
+			i++;
+		}
+		std::cout << std::endl;
+	}
 }

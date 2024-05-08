@@ -21,7 +21,7 @@ OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:%.cpp=%.o))
 RM	=	rm -f
 HEADER =	-I includes
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
+CXXFLAGS= -Wall -Wextra -Werror -std=c++98 -g -DDEBUG=$(DEBUG)
 
 $(OBJ_DIR)/%.o: %.cpp
 	@mkdir -p $(@D)
