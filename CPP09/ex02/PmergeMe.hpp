@@ -6,19 +6,15 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 17:55:04 by hbelle            #+#    #+#             */
-/*   Updated: 2024/05/08 20:22:17 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/05/08 22:21:06 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
 
 #ifndef PMERGEME_HPP
 # define PMERGEME_HPP
 
-#ifdef DEBUG
-	const bool debug_mode = true;
-#else
-	const bool debug_mode = false;
+# ifndef DEBUG
+# define DEBUG	0
 #endif
 
 #include <iostream>
@@ -27,18 +23,13 @@
 #include <string>
 #include <sstream>
 #include <deque>
-#include <ctime>
-#include <stdint.h>
 #include <iomanip>
 
 class PmergeMe
 {
 	public:
 		PmergeMe();
-		PmergeMe(const PmergeMe &src);
 		~PmergeMe();
-
-		PmergeMe	&operator=(const PmergeMe &src);
 
 		void	exec(std::vector<int> *arrayNumbers, int status);
 		void	mySort(std::vector<int> *arrayNumbers);
@@ -51,7 +42,10 @@ class PmergeMe
 		static bool __attribute__((unused)) ComparePairsVector(const std::vector<int>& a, const std::vector<int>& b);
 		void __attribute__((unused)) debugDeque(int status);
 		void __attribute__((unused)) debugVector(int status);
+		
 	private:
+		PmergeMe	&operator=(const PmergeMe &src);
+		PmergeMe(const PmergeMe &src);
 		std::deque<std::deque <int> > _deque;
 		std::deque<int> _deque2;
 		std::vector<std::vector<int> > _vector;
@@ -59,6 +53,5 @@ class PmergeMe
 		int	_odd;
 		int _status;
 };
-
 
 #endif

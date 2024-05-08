@@ -21,11 +21,11 @@ OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:%.cpp=%.o))
 RM	=	rm -f
 HEADER =	-I includes
 
-CXXFLAGS= -Wall -Wextra -Werror -std=c++98 -g -DDEBUG=$(DEBUG)
+CXXFLAGS= -Wall -Wextra -Werror -std=c++98 -g
 
 $(OBJ_DIR)/%.o: %.cpp
 	@mkdir -p $(@D)
-	@c++ $(CFLAGS) $(HEADER) -c $< -o $@
+	@c++ $(CXXFLAGS) $(HEADER) -c $< -o $@
 	@if test -s $*.cpp; then \
         echo "\033[01m\033[35mCompiling ⌛\033[00m\
         \033[36m$*.cpp\033[032m  [OK] ✅ \033[00m";\
@@ -34,7 +34,7 @@ $(OBJ_DIR)/%.o: %.cpp
         \033[36m$*.cpp\033[031m  [Error] ❌ \033[00m"; fi
 
 $(NAME): $(OBJS)
-	@c++ -o $(NAME) $(OBJS) $(CFLAGS) $(HEADER)
+	@c++ -o $(NAME) $(OBJS) $(CXXFLAGS) $(HEADER)
 	@echo "\033[01m\033[4;33mCompilation done\033[00m\033[1;31m =▶\033[00m\033[1;32m ./${NAME}\033[00m"
 
 all:	${NAME}
@@ -49,4 +49,8 @@ fclean:	clean
 
 re:	fclean all
 
-.PHONY: all clean fclean re
+debug: fclean
+debug: CXXFLAGS += -D DEBUG=1
+debug: all
+
+.PHONY: all clean fclean re debug

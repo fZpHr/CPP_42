@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 19:15:36 by hbelle            #+#    #+#             */
-/*   Updated: 2024/05/08 20:23:37 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/05/08 22:20:31 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,14 @@ PmergeMe::~PmergeMe()
 PmergeMe	&PmergeMe::operator=(const PmergeMe &src)
 {
 	if (this != &src)
+	{
 		_deque = src._deque;
+		_deque2 = src._deque2;
+		_vector = src._vector;
+		_vector2 = src._vector2;
+		_odd = src._odd;
+		_status = src._status;
+	}
 	return (*this);
 }
 
@@ -108,8 +115,7 @@ void PmergeMe::debugDeque(int status)
 		if (_odd != -1)
 			std::cout << "Odd: " << "[" << _odd << "]" << std::endl;
 		std::cout << std::endl;
-		std::cout << "Add max of pair to the final list and push" << std::endl;
-		std::cout << "the first min(max) to the begin if min(max) < max(min): ";
+		std::cout << "Add max of pair to the final list: ";
 		printDeque(_deque2);
 		std::cout << std::endl;
 	}
@@ -207,8 +213,7 @@ void	PmergeMe::debugVector(int status)
 		if (_odd != -1)
 			std::cout << "Odd: " << "[" << _odd << "]" << std::endl;
 		std::cout << std::endl;
-		std::cout << "Add max of pair to the final list and push" << std::endl;
-		std::cout << "the first min(max) to the begin if min(max) < max(min): ";
+		std::cout << "Add max of pair to the final list: ";
 		printVector(_vector2);
 		std::cout << std::endl;
 	}
@@ -242,7 +247,9 @@ bool PmergeMe::ComparePairsVector(const std::vector<int>& a, const std::vector<i
 	return (a[0] < b[0]);
 }
 
-
+/**
+ * @brief Add the rest of the list (and odd) to the final list using binary search (lower_bound)
+*/
 void	PmergeMe::mySort5()
 {
 	if (_status == 0)
@@ -283,6 +290,9 @@ void	PmergeMe::mySort5()
 	}
 }
 
+/**
+ * @brief Push all first element of the pairs, previously sorted, to the final list
+*/
 void	PmergeMe::mySort4()
 {
 	if (_status == 0)
@@ -309,6 +319,9 @@ void	PmergeMe::mySort4()
 	}
 }
 
+/**
+ * @brief Sort all pairs in ascending order recursively for deque
+*/
 void PmergeMe::mySort3deque(std::deque<std::deque<int> >::iterator begin, std::deque<std::deque<int> >::iterator end)
 {
 	if (end - begin <= 1)
@@ -319,6 +332,9 @@ void PmergeMe::mySort3deque(std::deque<std::deque<int> >::iterator begin, std::d
 	std::inplace_merge(begin, middle, end, ComparePairsDeque);
 }
 
+/**
+ * @brief Sort all pairs in ascending order recursively for vector
+*/
 void PmergeMe::mySort3vector(std::vector<std::vector<int> >::iterator begin, std::vector<std::vector<int> >::iterator end)
 {
 	if (end - begin <= 1)
@@ -329,6 +345,9 @@ void PmergeMe::mySort3vector(std::vector<std::vector<int> >::iterator begin, std
 	std::inplace_merge(begin, middle, end, ComparePairsVector);
 }
 
+/**
+ * @brief Sort pairs max to min
+*/
 void	PmergeMe::mySort2()
 {
 	if (_status == 0)
@@ -352,6 +371,16 @@ void	PmergeMe::mySort2()
 		}
 	}
 }
+
+/**
+ * @brief Handle the sort of the array type (deque or vector) and sort it in 5 steps
+ * 				1. Make pairs and if odd number, store it
+ * 				2. Sort pairs (max to min)
+ * 				3. Sort max pair in ascending order recursively
+ * 				4. Add all max of pair previously sorted to the final list
+ * 				5. Add the rest of the list (and odd) to the final list using binary search (lower_bound)
+ * @param arrayNumbers input array
+ */
 void	PmergeMe::mySort(std::vector<int> *arrayNumbers)
 {
 	if (_status == 0)
@@ -369,19 +398,19 @@ void	PmergeMe::mySort(std::vector<int> *arrayNumbers)
 				tmp_deque.push_back((*arrayNumbers)[i + 1]);
 			_deque.push_back(tmp_deque);
 		}
-		if (debug_mode)
+		if (DEBUG)
 			debugDeque(1);
 		mySort2();
-		if (debug_mode)
+		if (DEBUG)
 			debugDeque(2);
 		mySort3deque(_deque.begin(), _deque.end());
-		if (debug_mode)
+		if (DEBUG)
 			debugDeque(3);
 		mySort4();
-		if (debug_mode)
+		if (DEBUG)
 			debugDeque(4);
 		mySort5();
-		if (debug_mode)
+		if (DEBUG)
 			debugDeque(5);
 	}
 	else if (_status == 1)
@@ -399,23 +428,29 @@ void	PmergeMe::mySort(std::vector<int> *arrayNumbers)
 				tmp_vector.push_back((*arrayNumbers)[i + 1]);
 			_vector.push_back(tmp_vector);
 		}
-		if (debug_mode)
+		if (DEBUG)
 			debugVector(1);
 		mySort2();
-		if (debug_mode)
+		if (DEBUG)
 			debugVector(2);
 		mySort3vector(_vector.begin(), _vector.end());
-		if (debug_mode)
+		if (DEBUG)
 			debugVector(3);
 		mySort4();
-		if (debug_mode)
+		if (DEBUG)
 			debugVector(4);
 		mySort5();
-		if (debug_mode)
+		if (DEBUG)
 			debugVector(5);
 	}
 }
 
+/**
+ * @brief launch the sort and print the result
+ * 
+ * @param arrayNumbers 	input array
+ * @param status status of the array(0 for deque, 1 for vector)
+ */
 void	PmergeMe::exec(std::vector<int> *arrayNumbers, int status)
 {
 	int many = 0;
@@ -424,7 +459,7 @@ void	PmergeMe::exec(std::vector<int> *arrayNumbers, int status)
 	mySort(arrayNumbers);
 	if (_status == 1)
 	{
-		std::cout << "After: ";
+		std::cout << "After:  ";
 		for (size_t j = 0; j < _vector2.size(); j++)
 		{
 			if (i == 6)
@@ -440,9 +475,9 @@ void	PmergeMe::exec(std::vector<int> *arrayNumbers, int status)
 		}
 		std::cout << std::endl;
 	}
-	else if (_status == 0 && debug_mode)
+	else if (_status == 0 && DEBUG)
 	{
-		std::cout << "After: ";
+		std::cout << "After:  ";
 		for (size_t j = 0; j < _deque2.size(); j++)
 		{
 			if (i == 6)

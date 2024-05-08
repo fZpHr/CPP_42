@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 18:45:35 by hbelle            #+#    #+#             */
-/*   Updated: 2024/05/06 17:35:58 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/05/08 22:03:27 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,24 @@ int main (int ac, char **av)
 	regex_t 	regex2;
 	int start = 1;
 	int another = 0;
-	
+	int notalone = 0;
+
 	if (expression.empty() != false)
 	{
 		std::cout << "Error, empty expression" << std::endl;
 		return (1);
+	}
+	for (size_t i = 0; i < expression.size(); i++)
+	{
+		if (!isdigit(expression[i]))
+		{
+			notalone = 1;
+		}
+	}
+	if (notalone == 0)
+	{
+		std::cout << expression << std::endl;
+		return (0);
 	}
 	regcomp(&regex, "^([0-9]{1} [0-9]{1} [\\+\\*/\\-])$", REG_EXTENDED);
 	regcomp(&regex2, "^([0-9]{1} [\\+\\*/\\-])$", REG_EXTENDED);

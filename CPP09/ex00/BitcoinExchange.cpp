@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 16:13:17 by hbelle            #+#    #+#             */
-/*   Updated: 2024/05/03 19:27:34 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/05/08 21:52:50 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,25 +127,27 @@ void	BitcoinExchange::parseFile(std::string filename)
 				else
 				{
 					std::map<std::string, double>::iterator it = this->_data.lower_bound(line.substr(0, 10));
-					if (it != this->_data.begin())
+					if (it == this->_data.begin())
 					{
-						--it;
-						std::istringstream iss(line.substr(12));
-						double value;
-						iss >> value;
-						if (value < 0)
-						{
-							std::cerr << "Error: not a positive number." << std::endl;
-							continue;
-						}
-						else if (value > 1000)
-						{
-							std::cerr << "Error: too large a number." << std::endl;
-							continue;
-						}
-						else
-							std::cout << line.substr(0, 10) << " => " <<  value << " = " << it->second * value << std::endl;
+						std::cerr << "Error: no data found" << std::endl;
+						continue;
 					}
+					--it;
+					std::istringstream iss(line.substr(12));
+					double value;
+					iss >> value;
+					if (value < 0)
+					{
+						std::cerr << "Error: not a positive number." << std::endl;
+						continue;
+					}
+					else if (value > 1000)
+					{
+						std::cerr << "Error: too large a number." << std::endl;
+						continue;
+					}
+					else
+						std::cout << line.substr(0, 10) << " => " <<  value << " = " << it->second * value << std::endl;
 				}	
 			}
 			else
