@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 16:13:17 by hbelle            #+#    #+#             */
-/*   Updated: 2024/05/08 21:52:50 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/05/09 14:20:39 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,11 +128,9 @@ void	BitcoinExchange::parseFile(std::string filename)
 				{
 					std::map<std::string, double>::iterator it = this->_data.lower_bound(line.substr(0, 10));
 					if (it == this->_data.begin())
-					{
-						std::cerr << "Error: no data found" << std::endl;
-						continue;
-					}
-					--it;
+						;
+					else
+						--it;
 					std::istringstream iss(line.substr(12));
 					double value;
 					iss >> value;

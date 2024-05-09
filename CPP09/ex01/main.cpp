@@ -6,7 +6,7 @@
 /*   By: hbelle <hbelle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 18:45:35 by hbelle            #+#    #+#             */
-/*   Updated: 2024/05/08 22:03:27 by hbelle           ###   ########.fr       */
+/*   Updated: 2024/05/09 14:46:22 by hbelle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,6 @@ int main (int ac, char **av)
 						;
 					else
 					{
-						regfree(&regex);
-						regfree(&regex2);
 						throw std::invalid_argument("Error, invalid input");
 					}
 					another = 1;
@@ -82,8 +80,6 @@ int main (int ac, char **av)
 					;
 				else
 				{
-					regfree(&regex);
-					regfree(&regex2);
 					throw std::invalid_argument("Error, invalid input");
 				}
 			    expression.erase(0, pos + 1);
@@ -91,21 +87,21 @@ int main (int ac, char **av)
     		}
 			else 
 			{
-				regfree(&regex);
-				regfree(&regex2);
 				throw std::invalid_argument("Error, invalid expression");
     		}
 		}
-		regfree(&regex);
-		regfree(&regex2);
 		if (another > 1)
 			throw std::invalid_argument("Error, invalid input");
 	}
 	catch (std::invalid_argument &e)
 	{
+		regfree(&regex);
+		regfree(&regex2);
 		std::cerr << e.what() << std::endl;
 		return (1);
 	}
+	regfree(&regex);
+	regfree(&regex2);
 	RPN rpn(av[1]);
 	rpn.exec();
 	return (0);
